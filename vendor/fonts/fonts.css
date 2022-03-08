@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('inter-v7-latin_cyrillic-regular.woff2') format('woff2'),
+    url('inter-v7-latin_cyrillic-regular.woff') format('woff'),
+    url('inter-v7-latin_cyrillic-regular.eot'),
+    url('inter-v7-latin_cyrillic-regular.eot?#iefix') format('embedded-opentype'),    
+    url('inter-v7-latin_cyrillic-regular.ttf') format('truetype'),
+    url('inter-v7-latin_cyrillic-regular.svg#Inter') format('svg');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+    url('inter-v7-latin_cyrillic-900.woff2') format('woff2'),
+    url('inter-v7-latin_cyrillic-900.woff') format('woff'),
+    url('inter-v7-latin_cyrillic-900.eot'),
+    url('inter-v7-latin_cyrillic-900.eot?#iefix') format('embedded-opentype'),
+    url('inter-v7-latin_cyrillic-900.ttf') format('truetype'),
+    url('inter-v7-latin_cyrillic-900.svg#Inter') format('svg');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),    
+    url('inter-v7-latin_cyrillic-700.woff2') format('woff2'),    
+    url('inter-v7-latin_cyrillic-700.woff') format('woff'),
+    url('inter-v7-latin_cyrillic-700.eot'),
+    url('inter-v7-latin_cyrillic-700.eot?#iefix') format('embedded-opentype'),
+    url('inter-v7-latin_cyrillic-700.ttf') format('truetype'),    
+    url('inter-v7-latin_cyrillic-700.svg#Inter') format('svg');
+}
