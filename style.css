@@ -76,9 +76,47 @@
     margin-left: 250px;
 }
 
+.elements {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 17px;
+    padding-top: 47px;
+}
 
+.element {
+    margin: 0;
+    width: 282px;
+    height: 361px;
+}
 
 .element__image {
-    max-width: 282px;
-    max-height: 282px;
+    width: 282px;
+    height: 282px;
+    border-radius: 10px 10px 0 0;
 }
+
+.element__header {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content:space-between;
+    height: 79px;
+    border-radius: 0 0 10px 10px;
+           
+}
+
+.element__title {
+    margin: 0;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 25px 0 31px 21px;
+}
+
+.element__like {
+    width: 22px;
+    height: 19px;
+    margin: 30px 20px 0 0;
+}
+
