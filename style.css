@@ -127,3 +127,35 @@
     line-height: 22px;
     color: #545454;
 }
+
+.popup {
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+
+    
+}
+
+.popup__container {
+    width: 430px;;
+    height:330px;
+    background-color: white;
+    margin:0px auto;
+    color: black;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+}
+.popup__title {
+}
+.form {
+}
+.form__name {
+}
+.form__status {
+}
