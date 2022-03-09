@@ -66,6 +66,15 @@
     height: 24px;
     margin-left: 18px;
     margin-top: 42px;
+    background-color: #000000;
+    background-image: url(images/Edit_Button.svg);
+    border: 1px solid #fff;
+}
+
+.profile__button-edit:hover {
+    cursor:pointer;
+    border: 1px solid #fff;
+    opacity: 0.6;    
 }
 
 .profile__add-button {
@@ -73,6 +82,16 @@
     height: 50px;
     align-self:center;
     margin-left: 250px;
+    background-color: #000000;
+    background-image: url(images/Add-Button.png);
+    border: 2px solid #fff;
+    border-radius: 2px;
+}
+
+.profile__add-button:hover {
+    cursor:pointer;
+    border: 2px solid #fff;
+    opacity: 0.6;
 }
 
 .elements {
@@ -116,6 +135,26 @@
     width: 22px;
     height: 19px;
     margin: 30px 20px 0 0;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    background-image: url(images/layk.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+.element__like:hover {
+    cursor:pointer;
+    background-image: url(images/layk1.svg);
+    background-position: 50%;
+    background-size: 20px 20px;   
+}
+
+.element__like:active {
+    background-image: url(images/like2.png);
+    background-position: 50%;
+    background-size: 20px 20px;
 }
 
 .footer {
