@@ -129,6 +129,7 @@
 }
 
 .popup {
+    display: none;
     width:100%;
     min-height:100%;
     background-color: rgba(0,0,0,0.5);
@@ -209,8 +210,6 @@
     background-color: black;
     opacity: 0.8;
     cursor:pointer;
-    
-
 }
 
 .popup__close {
@@ -219,4 +218,9 @@
     position: absolute;
     top: -40px; 
     right: -40px; 
+}
+
+.popup__close:hover {
+    cursor:pointer;
+    
 }
