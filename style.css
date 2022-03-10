@@ -371,7 +371,7 @@
 }
 
 .popup {
-    /* display: none; */
+    display: none;
     width:100%;
     min-height:100%;
     background-color: rgba(0,0,0,0.5);
@@ -380,6 +380,10 @@
     top: 0px;  
     left: 0px;  
 }
+
+/* .popup_opened {
+    display: block;
+} */
 
 .popup__container {
     max-width: 430px;;
@@ -416,7 +420,6 @@
     .popup__container {
         max-width: 282px;;
         min-height:330px;
-
     }
 }
 
@@ -437,11 +440,8 @@
 @media screen and (max-width: 490px) {
     .popup__title {
         font-size: 18px;
-    line-height: 22px;
-}
-}
-
-.form {
+        line-height: 22px;
+    }
 }
 
 .popup__input {
@@ -473,9 +473,6 @@
 
 .form__name {
    margin-bottom: 30px; 
-}
-
-.form__status {
 }
 
 .popup__button {
