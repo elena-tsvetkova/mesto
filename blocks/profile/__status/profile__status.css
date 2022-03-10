@@ -1,0 +1,11 @@
+.profile__status {
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 16px;
+}
+
+@media screen and (max-width: 425px) {
+    .profile__status {
+        margin-bottom: 36px;
+    }
+}

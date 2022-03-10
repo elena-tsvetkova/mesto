@@ -1,0 +1,8 @@
+.element__header {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content:space-between;
+    height: 79px;
+    border-radius: 0 0 10px 10px;           
+}
