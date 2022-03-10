@@ -28,9 +28,22 @@
     }       
 }
 
+@media screen and (max-width: 320px) {
+    .header {
+    padding: 28px 27px 0;
+    height: 56px;
+    }
+}
+
 .header__logo {
     width: 142px;
     height: 33px;
+}
+
+@media screen and (max-width: 320px){
+    .header__logo {
+        height: 24px;
+    }
 }
 
 .main {
@@ -104,10 +117,11 @@
 
 @media screen and (max-width: 425px) {
     .profile__name {
-        font-weight: 500;
+    font-weight: 500;
     font-size: 27px;
     line-height: 33px;
     text-align: center;
+    margin: 22px 0 0;
     }
 }
 
@@ -115,6 +129,12 @@
     font-size: 18px;
     line-height: 22px;
     margin-top: 16px;
+}
+
+@media screen and (max-width: 425px) {
+    .profile__status {
+        margin-bottom: 36px;
+    }
 }
 
 .profile__button-edit {
@@ -129,6 +149,12 @@
     cursor:pointer;
     border: 1px solid #fff;
     opacity: 0.6;    
+}
+
+@media screen and (max-width: 320px) {
+    .profile__button-edit {
+        margin-left: 5px;
+    }
 }
 
 .profile__add-button {
@@ -183,12 +209,10 @@
     .profile__add-button {
         width: 300px;
         background-repeat: no-repeat;
-        background-image: url(images/krestik.png) 0 0/ 100% 100%;
+        background-image: url(images/krestik.png);
+        background-position: 50%;
         align-self: center;
         margin: 0;
-        border: none;
-    
-
     }
 }
 
@@ -207,6 +231,12 @@
 }
 
 @media screen and (max-width: 750px) {
+    .elements {
+        padding-top: 36px;
+    }
+}
+
+@media screen and (max-width: 320px) {
     .elements {
         column-gap: 17px;
     }
