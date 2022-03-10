@@ -371,26 +371,53 @@
 }
 
 .popup {
-    display: none;
+    /* display: none; */
     width:100%;
     min-height:100%;
     background-color: rgba(0,0,0,0.5);
     overflow:hidden;
     position:fixed;
-    top:0px;    
+    top: 0px;  
+    left: 0px;  
 }
 
 .popup__container {
-    width: 430px;;
+    max-width: 430px;;
     height:330px;
     background-color: white;
     margin:0px auto;
     color: black;
     border-radius: 10px;
-    top: 50%;
+    position: fixed;
+    top: 5%;
     left: 50%;
     transform: translate(-50%, 50%);
     box-sizing: border-box;
+    
+}
+
+@media screen and (max-width: 850px) {
+    .popup__container {
+        max-width: 400px;
+        min-height: 330px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .popup__container {
+        max-width: 350px;
+        min-height: 330px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup__container {
+        max-width: 282px;;
+        min-height:330px;
+
+    }
 }
 
 .popup__title {
@@ -401,19 +428,32 @@
     margin: 0;
 }
 
+@media screen and (max-width: 850px) {
+    .popup__title {
+        padding: 25px 22px 45px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .popup__title {
+        font-size: 18px;
+    line-height: 22px;
+}
+}
 
 .form {
 }
 
 .popup__input {
-    margin: 0 36px;
-    padding: 0%;
-    width: 358px;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 358px;
     height: 27px;
     font-family: inherit;
     border: none;
     border-bottom: 1px solid #000000;
     opacity: 0.2;
+    display: block;
 }
 
 .popup__input:focus {
@@ -422,6 +462,13 @@
     border: 3px solid #079dd9;
     opacity: 0.3;
    border-radius: 5px;
+}
+
+@media screen and (max-width: 850px) {
+    .popup__input {
+        margin: 0 auto;
+        width: 258px;
+    }
 }
 
 .form__name {
@@ -452,6 +499,20 @@
     cursor:pointer;
 }
 
+@media screen and (max-width: 850px) {
+    .popup__button {
+        max-width: 368px;
+        height: 46px;
+        margin: 74px 22px 25px 22px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .popup__button {
+        max-width: 238px;
+    }   
+}
+
 .popup__close {
     width: 32px;
     height: 32px;
@@ -463,4 +524,19 @@
 .popup__close:hover {
     cursor:pointer;
     
+}
+
+@media screen and (max-width: 490px) {
+    .popup__close {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .popup__close  {
+        position: absolute;
+        top: -40px; 
+        right: -12px; 
+    }
 }
