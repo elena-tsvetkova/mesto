@@ -14,3 +14,19 @@ function close() {
 
 elementClose.addEventListener('click', close); 
 
+
+let name = document.querySelector('.profile__name');
+let status = document.querySelector('.profile__status');
+let formElement = document.querySelector('.form');
+
+function formSubmitHandler(evt) {
+  evt.preventDefault();
+  let nameInput = document.querySelector('.form__name').value;
+  let jobInput = document.querySelector('.form__status').value;
+  
+  name.textContent = nameInput;
+  status.textContent = jobInput;
+  
+}
+
+formElement.addEventListener('submit', formSubmitHandler); 
