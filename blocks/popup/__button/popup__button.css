@@ -9,7 +9,7 @@
     margin-top: 48px;
     padding: 0;
     border: none;
-    margin-left: 36px;
+    margin-left: 26px;
     border-radius: 2px;
 }
 
@@ -23,7 +23,9 @@
     .popup__button {
         max-width: 368px;
         height: 46px;
-        margin: 74px 22px 25px 22px;
+        margin: 15px 22px 25px 22px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
 

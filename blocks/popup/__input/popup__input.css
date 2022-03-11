@@ -1,6 +1,7 @@
 .popup__input {
     margin: 0 auto;
     padding: 0;
+    margin-bottom: 15px;
     max-width: 358px;
     height: 27px;
     font-family: inherit;
@@ -12,7 +13,6 @@
 
 .popup__input:focus {
     outline: none;
-    border: 0;
     border: 3px solid #079dd9;
     opacity: 0.3;
    border-radius: 5px;
@@ -21,6 +21,13 @@
 @media screen and (max-width: 850px) {
     .popup__input {
         margin: 0 auto;
+        margin-bottom: 29px;
+        
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .popup__input {
         width: 258px;
     }
 }

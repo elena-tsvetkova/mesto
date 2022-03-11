@@ -50,7 +50,7 @@
     .profile__add-button {
         width: 300px;
         background-repeat: no-repeat;
-        background-image: url(images/krestik.png);
+        background-image: url(../../../images/krestik.png);
         background-position: 50%;
         align-self: center;
         margin: 0;

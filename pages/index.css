@@ -14,6 +14,7 @@
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 
 @import url(../blocks/form/__name/form__name.css);
+@import url(../blocks/form/__status/form__status.css);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
