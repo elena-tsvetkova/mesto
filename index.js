@@ -26,7 +26,7 @@ function formSubmitHandler(evt) {
   
   name.textContent = nameInput;
   status.textContent = jobInput;
-  
+  close();
 }
 
 formElement.addEventListener('submit', formSubmitHandler); 
