@@ -2,4 +2,11 @@
     display: grid;
     gap: 16px 18px;
     grid-template-columns: 1fr 24px;
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 580px) {
+    .profile__grid {
+        margin: 0;
+    }
 }
