@@ -4,6 +4,7 @@
     padding-bottom: 51px;
     min-height: 120px;
     display: flex;
+    justify-content:space-between;
 }
 
 @media screen and (max-width: 580px){
@@ -18,3 +19,4 @@
     align-items:center;
     }
 }
+

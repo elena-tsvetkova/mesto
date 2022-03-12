@@ -38,5 +38,6 @@
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__status/profile__status.css);
+@import url(../blocks/profile/__grid/profile__grid.css);
 
 @import url(../blocks/wrapper/wrapper.css);
