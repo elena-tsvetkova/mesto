@@ -5,12 +5,12 @@
     background-color: rgba(0,0,0,0.5);
     overflow:hidden;
     position:fixed;
-    top: 0px;  
+    top: 0px;
     left: 0px;  
 }
 
 @media screen and (max-width: 850px) {
     .popup {
-        max-height: 322px;
+    max-height: 322px;
     }
 }
