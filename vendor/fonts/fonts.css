@@ -14,6 +14,19 @@
 @font-face {
   font-family: 'Inter';
   font-style: normal;
+  font-weight: 500;
+  src: local(''),       
+       url('../fonts/inter-v8-latin_cyrillic-500.woff2') format('woff2'),
+       url('../fonts/inter-v8-latin_cyrillic-500.woff') format('woff'),
+       url('../fonts/inter-v8-latin_cyrillic-500.eot'),
+       url('../fonts/inter-v8-latin_cyrillic-500.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/inter-v8-latin_cyrillic-500.ttf') format('truetype'),
+       url('../fonts/inter-v8-latin_cyrillic-500.svg#Inter') format('svg');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
   font-weight: 900;
   src: local(''),
     url('inter-v7-latin_cyrillic-900.woff2') format('woff2'),
