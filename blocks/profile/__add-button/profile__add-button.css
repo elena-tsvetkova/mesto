@@ -17,7 +17,7 @@
 
 @media screen and (max-width: 580px) {
     .profile__add-button {
-        width: 300px;
+        width: 288px;
         background-repeat: no-repeat;
         background-image: url(../../../images/krestik.png);
         background-position: 50%;

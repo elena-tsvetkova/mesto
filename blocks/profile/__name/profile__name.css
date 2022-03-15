@@ -1,7 +1,7 @@
 .profile__name {
     font-weight: 500;
     font-size: 42px;
-    line-height: 48px;
+    line-height: 30px;
     margin: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -12,15 +12,14 @@
 @media screen and (max-width: 880px) {
     .profile__name {
         font-size: 30px;
+        line-height: 33px
     }
 }
 
 @media screen and (max-width: 425px) {
     .profile__name {
-    font-weight: 500;
-    font-size: 27px;
-    line-height: 33px;
-    text-align: center;
-    margin: 22px 0 0;
+        font-size: 27px;
+        line-height: 33px;
+        text-align: center;
     }
 }
