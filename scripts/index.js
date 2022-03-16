@@ -17,12 +17,12 @@ elementClose.addEventListener('click', close);
 
 let name = document.querySelector('.profile__name');
 let status = document.querySelector('.profile__status');
-let formElement = document.querySelector('.form');
+let formElement = document.querySelector('.popup__form');
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  let nameInput = document.querySelector('.form__name').value;
-  let jobInput = document.querySelector('.form__status').value;
+  let nameInput = document.querySelector('.popup__input_name').value;
+  let jobInput = document.querySelector('.popup__input_status').value;
   
   name.textContent = nameInput;
   status.textContent = jobInput;

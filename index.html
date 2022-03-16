@@ -9,10 +9,8 @@
   <meta name="author" content="Цветкова Елена">
   <title>Место</title>
 </head>
-<body>
-  <div class="wrapper">
-    <div class="page">
-      <header class="header">
+<body class="page">
+  <header class="header">
         <img class="header__logo" src="images/Vector.svg" alt="Место Россия">
       </header>
       <main class="main">
@@ -21,73 +19,71 @@
             <img class="profile__avatar" src="images/avatar.jpg" alt="фото профиля">
             <div class="profile__grid">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <button class="profile__button-edit"></button>
+              <button type="button" class="profile__button-edit"></button>
               <p class="profile__status">Исследователь океана</p>
             </div>  
           </div>          
-          <button class="profile__add-button"></button>
+          <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements">
-          <div class="element">
+          <article class="element">
             <img src="images/dagestan.jpg" alt="Дагестан" class="element__image">
             <div class="element__header">
               <h2 class="element__title">Дагестан</h2>
-              <button class="element__like"></button>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
+          </article>
+          <article class="element">
             <img src="images/dombay.png" alt="Домбай" class="element__image">
             <div class="element__header">
               <h2 class="element__title">Домбай</h2>
-              <button class="element__like"></button>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
+          </article>
+          <article class="element">
             <img src="images/gora-elbrus.jpg" alt="Эльбрус" class="element__image">
             <div class="element__header">
               <h2 class="element__title">Эльбрус</h2>
-              <button class="element__like"></button>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
+          </article>
+          <article class="element">
             <img src="images/kamchatka.jpg" alt="Камчатка" class="element__image">
             <div class="element__header">
               <h2 class="element__title">Камчатка</h2>
-              <button class="element__like"></button>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
+          </article>
+          <article class="element">
             <img src="images/karathaevsk.jpg" alt="Карачаевск" class="element__image">
             <div class="element__header">
               <h2 class="element__title">Карачаевск</h2>
-              <button class="element__like"></button>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
+          </article>
+          <diarticlev class="element">
             <img src="images/rosa-hutor.jpg" alt="Роза-Хутор" class="element__image">
             <div class="element__header">
               <h2 class="element__title">Роза-Хутор</h2>
-              <button class="element__like"></button>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
+          </diarticlev>
         </section>
       </main>
       <div class="popup popup_opened">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form form">
-            <input type="text" tabindex="1" class="popup__input form__name" value="Жак-Ив Кусто" name="name">
-            <input type="text" tabindex="2" class="popup__input form__status" value="Исследователь океана" name="status">
+          <form class="popup__form" name="popup-profil">
+            <input type="text" tabindex="1" class="popup__input popup__input_name" value="Жак-Ив Кусто" name="name">
+            <input type="text" tabindex="2" class="popup__input popup__input_status" value="Исследователь океана" name="status">
             <button type="submit" tabindex="3" class="popup__button">Сохранить</button>
           </form>
-          <img src="images/Close-Icon.png" alt="закрыть" class="popup__close">
+          <button type="button" class="popup__close">
         </div>        
       </div>
       <footer class="footer">
         <p class="footer__copyright"> &copy;2022 Mesto Russia</p>
       </footer>
-    </div>
-  </div>
-  <script src="index.js"></script>
+  <script src="scripts/index.js"></script>
 </body>
 </html>

@@ -6,13 +6,7 @@
     position:fixed;
     top: 0px;
     left: 0px;
-    display: flex;
+    display: none;
     justify-content:center;
     align-items:center;
-}
-
-@media screen and (max-width: 850px) {
-    .popup {
-    max-height: 322px;
-    }
 }
