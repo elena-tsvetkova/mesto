@@ -1,12 +1,15 @@
 let element = document.querySelector('.profile__button-edit');
+let elementClose = document.querySelector('.popup__close');
+let name = document.querySelector('.profile__name');
+let status = document.querySelector('.profile__status');
+let formElement = document.querySelector('.popup__form');
 
 function showClick() {
-  document.querySelector('.popup_opened').style.display = 'block';
+  document.querySelector('.popup_opened').style.display = 'flex';
 }
 
 element.addEventListener('click', showClick); 
 
-let elementClose = document.querySelector('.popup__close');
 
 function close() {
   document.querySelector('.popup_opened').style.display = 'none';
@@ -15,9 +18,7 @@ function close() {
 elementClose.addEventListener('click', close); 
 
 
-let name = document.querySelector('.profile__name');
-let status = document.querySelector('.profile__status');
-let formElement = document.querySelector('.popup__form');
+
 
 function formSubmitHandler(evt) {
   evt.preventDefault();

@@ -1,6 +1,6 @@
 .profile {
     width: 100%;
-    padding-top: 40px;
+    padding-top: 38px;
     padding-bottom: 51px;
     min-height: 120px;
     display: flex;
@@ -9,7 +9,6 @@
 
 @media screen and (max-width: 605px){
     .profile {
-    display: flex;
     flex-direction:column;
     flex-wrap: wrap;
     justify-content: center;
