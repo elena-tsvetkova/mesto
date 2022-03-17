@@ -13,5 +13,9 @@
     .profile__status {
         text-align: center;
         font-size: 14px;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        padding-left: 38px;
+        line-height: 12px;
     }
 }

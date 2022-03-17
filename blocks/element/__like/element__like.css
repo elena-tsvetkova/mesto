@@ -5,21 +5,20 @@
     border: none;
     font-size: 24px;
     font-weight: 700;
-    background-image: url(../../../images/layk.png);
+    background-image: url(../../../images/layk.svg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: 20px 20px;
+    background-color: transparent;
 }
 
 .element__like:hover {
     cursor:pointer;
-    background-image: url(../../../images/layk1.svg);
-    background-position: 50%;
-    background-size: 20px 20px;   
+    opacity: 0.5;
 }
 
-.element__like:active {
-    background-image: url(../../../images/like2.png);
-    background-position: 50%;
-    background-size: 20px 20px;
+@media screen and (max-width: 320px) {
+    .element__like {
+        margin-top: 27px;
+    }
 }

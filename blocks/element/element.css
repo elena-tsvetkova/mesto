@@ -1,7 +1,7 @@
 .element {
     margin: 0 auto;
     width: 282px;
-    height: 361px;
+    min-height: 361px;
     background-color: white;
     border-radius: 10px;
 }
@@ -9,7 +9,6 @@
 @media screen and (max-width: 880px) {
     .element {
         width: 338px;
-        margin: 0;
     }
 }
 
@@ -28,5 +27,6 @@
 @media screen and (max-width: 320px) {
     .element {
         width: 282px;
+        height: 361px;
     }
 }
