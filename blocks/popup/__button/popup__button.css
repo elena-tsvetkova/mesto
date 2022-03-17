@@ -6,12 +6,10 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    /* margin-top: 48px; */
     padding: 0;
     border: none;
-    /* margin-left: 26px; */
     border-radius: 2px;
-    margin: 15px 22px 25px 22px;
+    margin: 17px 22px 25px 36px;
 }
 
 .popup__button:hover {
