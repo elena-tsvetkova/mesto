@@ -9,7 +9,7 @@
     padding: 0;
     border: none;
     border-radius: 2px;
-    margin: 17px 22px 25px 36px;
+    margin: 17px 0 25px;
 }
 
 .popup__button:hover {
@@ -22,8 +22,7 @@
     .popup__button {
         max-width: 368px;
         height: 46px;
-        margin-top: 15px;
-        margin-right: 22px;
+        margin-top: 16px;
         font-size: 14px;
         line-height: 17px;
     }
