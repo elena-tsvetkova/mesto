@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 320px) {
     .element__header {
-        height: 77px;
+        min-height: 77px;
     }
 }
     
