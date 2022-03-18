@@ -13,8 +13,7 @@
 
 .popup__input:focus {
     outline: none;
-    border: 3px solid #079dd9;
-    opacity: 0.3;
+    border: 1px solid #079dd9;
     border-radius: 5px;
 }
 

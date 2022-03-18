@@ -6,27 +6,3 @@
     object-fit: cover;
 }
 
-@media screen and (max-width: 880px) {
-    .element__image {
-        width: 340px;
-    }
-}
-
-@media screen and (max-width: 740px) {
-    .element__image {
-        width: 282px;
-    }
-}
-
-@media screen and (max-width: 580px) {
-    .element__image {
-        width: 300px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .element__image {
-        width: 282px;
-        height: 284px;
-    }
-}

@@ -4,29 +4,7 @@
     min-height: 361px;
     background-color: white;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
-@media screen and (max-width: 880px) {
-    .element {
-        width: 338px;
-    }
-}
-
-@media screen and (max-width: 740px) {
-    .element {
-        width: 282px;
-    }
-}
-
-@media screen and (max-width: 580px) {
-    .element {
-        width: 300px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .element {
-        width: 282px;
-        height: 361px;
-    }
-}

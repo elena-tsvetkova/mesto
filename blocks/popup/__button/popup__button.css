@@ -22,7 +22,8 @@
     .popup__button {
         max-width: 368px;
         height: 46px;
-        margin: 15px 22px 25px 22px;
+        margin-top: 15px;
+        margin-right: 22px;
         font-size: 14px;
         line-height: 17px;
     }

@@ -3,16 +3,9 @@
     font-size: 24px;
     line-height: 29px;
     max-width: 185px;
-    margin: 25px 0 31px 21px;
+    margin: 25px 0 25px 21px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;       
 }
 
-@media screen and (max-width: 320px) {
-    .element__title {
-        line-height: 34px;
-        margin-top: 19px;
-        margin-bottom: 26px;
-    }
-}

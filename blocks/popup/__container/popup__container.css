@@ -17,14 +17,12 @@
     .popup__container {
         max-width: 400px;
         min-height: 322px;
-        margin: 0 auto;
     }
 }
 
 @media screen and (max-width: 490px) {
     .popup__container {
         max-width: 350px;
-        margin: 0 auto;
     }
 }
 

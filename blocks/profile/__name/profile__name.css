@@ -23,5 +23,6 @@
         text-align: center;
         padding-top: 18px;
         padding-left: 38px;
+        max-width: 200px;
     }
 }

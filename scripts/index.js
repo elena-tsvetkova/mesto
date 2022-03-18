@@ -4,11 +4,13 @@ let name = document.querySelector('.profile__name');
 let status = document.querySelector('.profile__status');
 let formElement = document.querySelector('.popup__form');
 const popup = document.querySelector('.popup')
+let namePopup = document.querySelector('.popup__input_type_name');
+let jobPopup = document.querySelector('.popup__input_type_job');
 
 function popupOpen() {
  popup.classList.add('popup_opened')
- document.querySelector('.popup__input_name').value = name.textContent
- document.querySelector('.popup__input_status').value = status.textContent
+ namePopup.value = name.textContent
+ jobPopup.value = status.textContent
 }
 
 element.addEventListener('click', popupOpen); 
@@ -25,8 +27,8 @@ elementClose.addEventListener('click', close)
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  let nameInput = document.querySelector('.popup__input_name').value;
-  let jobInput = document.querySelector('.popup__input_status').value;
+  let nameInput = namePopup.value;
+  let jobInput = jobPopup.value;
   
   name.textContent = nameInput;
   status.textContent = jobInput;
