@@ -16,12 +16,12 @@
   font-style: normal;
   font-weight: 500;
   src: local(''),       
-       url('/inter-v8-latin_cyrillic-500.woff2') format('woff2'),
-       url('/inter-v8-latin_cyrillic-500.woff') format('woff'),
-       url('/inter-v8-latin_cyrillic-500.eot'),
-       url('/inter-v8-latin_cyrillic-500.eot?#iefix') format('embedded-opentype'),
-       url('/inter-v8-latin_cyrillic-500.ttf') format('truetype'),
-       url('/inter-v8-latin_cyrillic-500.svg#Inter') format('svg');
+       url('inter-v8-latin_cyrillic-500.woff2') format('woff2'),
+       url('inter-v8-latin_cyrillic-500.woff') format('woff'),
+       url('inter-v8-latin_cyrillic-500.eot'),
+       url('inter-v8-latin_cyrillic-500.eot?#iefix') format('embedded-opentype'),
+       url('inter-v8-latin_cyrillic-500.ttf') format('truetype'),
+       url('inter-v8-latin_cyrillic-500.svg#Inter') format('svg');
 }
 
 @font-face {
