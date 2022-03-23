@@ -12,9 +12,7 @@ const nameImage = document.querySelector('.popup__input_type_title');
 const linkImage = document.querySelector('.popup__input_type_link');
 const addImage = document.querySelector('.profile__add-button');
 const closeAddButton = document.querySelector('.popup__close-add');
-
-let cardNow = document.querySelector('.popup__input_type_title');
-let cardSrc = document.querySelector('.popup__input_type_link');
+let formImage = document.querySelector('.popup__form-new-image');
 
 let link = document.querySelector('.element__image');
 let title = document.querySelector('.element__title');
@@ -48,7 +46,6 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 function popupNewImage() {
   newImage.classList.add('popup_opened')
-  
  }
  
  addImage.addEventListener('click', popupNewImage); 
@@ -59,7 +56,7 @@ function popupNewImage() {
 
 closeAddButton.addEventListener('click', closeAdd)
 
-const  card= document.querySelector('.elements');
+const card = document.querySelector('.elements');
 
 let cardTemplate = document.querySelector('.element-template').content;
 
@@ -96,21 +93,19 @@ initialCards.forEach(function (element) {
   cardElement.querySelector('.element__image').src = element.link;
   cardElement.querySelector('.element__title').textContent = element.name;
   
-
   card.append(cardElement)
 })
 
+
 function formSubmitImage(evt) {
   evt.preventDefault();
-  // let nameCard = cardNow.value;
-  // let cardLink = cardSrc.value;
+  
+  const cardElement = cardTemplate.cloneNode(true);
+  cardElement.querySelector('.element__image').src = linkImage.value;
+  cardElement.querySelector('.element__title').textContent = nameImage.value;
+  card.prepend(cardElement)
 
-  
-  // initialCards.unshift({'nameCard', 'cardLink'})
-  
-  // name.textContent = nameInput;
-  // status.textContent = jobInput;
   close();
 }
 
-formElement.addEventListener('submit', formSubmitImage); 
+formImage.addEventListener('submit', formSubmitImage); 
