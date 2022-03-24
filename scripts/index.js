@@ -16,6 +16,9 @@ let formImage = document.querySelector('.popup__form-new-image');
 
 let link = document.querySelector('.element__image');
 let title = document.querySelector('.element__title');
+const card = document.querySelector('.elements');
+let cardTemplate = document.querySelector('.element-template').content;
+
 
 function popupOpen() {
  popup.classList.add('popup_opened')
@@ -56,9 +59,6 @@ function popupNewImage() {
 
 closeAddButton.addEventListener('click', closeAdd)
 
-const card = document.querySelector('.elements');
-
-let cardTemplate = document.querySelector('.element-template').content;
 
 const initialCards = [
   {
@@ -96,16 +96,25 @@ initialCards.forEach(function (element) {
   card.append(cardElement)
 })
 
-
+ 
 function formSubmitImage(evt) {
   evt.preventDefault();
   
   const cardElement = cardTemplate.cloneNode(true);
-  cardElement.querySelector('.element__image').src = linkImage.value;
-  cardElement.querySelector('.element__title').textContent = nameImage.value;
+  cardElement.querySelector('.element__image').src = linkImage.placeholder;
+  cardElement.querySelector('.element__title').textContent = nameImage.placeholder;
   card.prepend(cardElement)
 
-  close();
+  closeAdd();
 }
 
 formImage.addEventListener('submit', formSubmitImage); 
+
+let likeList = document.querySelectorAll('.element__like');
+
+likeList.forEach(function (like) {
+  like.addEventListener( 'click', () => {
+    like.classList.toggle('element__like-activ') 
+    
+    })
+})
