@@ -19,6 +19,8 @@ let title = document.querySelector('.element__title');
 const card = document.querySelector('.elements');
 let cardTemplate = document.querySelector('.element-template').content;
 
+let likeList = document.querySelectorAll('.element__like');
+
 
 function popupOpen() {
  popup.classList.add('popup_opened')
@@ -101,20 +103,30 @@ function formSubmitImage(evt) {
   evt.preventDefault();
   
   const cardElement = cardTemplate.cloneNode(true);
-  cardElement.querySelector('.element__image').src = linkImage.placeholder;
-  cardElement.querySelector('.element__title').textContent = nameImage.placeholder;
+  cardElement.querySelector('.element__image').src = linkImage.value;
+  cardElement.querySelector('.element__title').textContent = nameImage.value;
   card.prepend(cardElement)
+
+  let like = document.querySelector('.element__like');
+  like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
+
+
+  let removal = document.querySelector('.element__trash');
+  removal.addEventListener( 'click', () => { removal.closest('.element').remove() })
 
   closeAdd();
 }
 
 formImage.addEventListener('submit', formSubmitImage); 
 
-let likeList = document.querySelectorAll('.element__like');
+
 
 likeList.forEach(function (like) {
-  like.addEventListener( 'click', () => {
-    like.classList.toggle('element__like-activ') 
-    
-    })
+  like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
+})
+
+
+let removalList = document.querySelectorAll('.element__trash');
+removalList.forEach(function (removal) {
+removal.addEventListener( 'click', () => { removal.closest('.element').remove() })
 })
