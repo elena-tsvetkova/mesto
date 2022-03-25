@@ -19,8 +19,6 @@ let title = document.querySelector('.element__title');
 const card = document.querySelector('.elements');
 let cardTemplate = document.querySelector('.element-template').content;
 
-let likeList = document.querySelectorAll('.element__like');
-
 
 function popupOpen() {
  popup.classList.add('popup_opened')
@@ -120,7 +118,7 @@ function formSubmitImage(evt) {
 formImage.addEventListener('submit', formSubmitImage); 
 
 
-
+let likeList = document.querySelectorAll('.element__like');
 likeList.forEach(function (like) {
   like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
 })
