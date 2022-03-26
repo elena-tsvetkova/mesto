@@ -3,11 +3,11 @@ let elementClose = document.querySelector('.popup__close-profil');
 let name = document.querySelector('.profile__name');
 let status = document.querySelector('.profile__status');
 let formElement = document.querySelector('.popup__form-profile');
-const popup = document.querySelector('.popup__profile');
+const popup = document.querySelector('.popup-profile');
 let namePopup = document.querySelector('.popup__input_type_name');
 let jobPopup = document.querySelector('.popup__input_type_job');
 
-const newImage = document.querySelector('.popup__new-image');
+const newImage = document.querySelector('.popup-new-image');
 const nameImage = document.querySelector('.popup__input_type_title');
 const linkImage = document.querySelector('.popup__input_type_link');
 const addImage = document.querySelector('.profile__add-button');
@@ -128,3 +128,30 @@ let removalList = document.querySelectorAll('.element__trash');
 removalList.forEach(function (removal) {
 removal.addEventListener( 'click', () => { removal.closest('.element').remove() })
 })
+
+let imageOpenedList = document.querySelectorAll('.element__image');
+let bigImage = document.querySelector('.popup-big-image');
+let bigOpened = document.querySelector('.popup-big-image__opened');
+let titleBig = document.querySelectorAll('.popup-big-image__title');
+
+
+imageOpenedList.forEach(function (imageOpened){
+  imageOpened.addEventListener( 'click',() => {
+  bigImage.classList.add('popup_opened'); 
+  bigOpened.src = imageOpened.src;
+  titleBig.textContent = title.textContent;
+ 
+})
+ 
+})
+
+
+let bigClose = document.querySelector('.popup-big-image__close');
+
+function close() {
+  bigImage.classList.remove('popup_opened')
+}
+bigClose.addEventListener('click', close);
+
+
+
