@@ -14,8 +14,6 @@ const addImage = document.querySelector('.profile__add-button');
 const closeAddButton = document.querySelector('.popup__close-add');
 let formImage = document.querySelector('.popup__form-new-image');
 
-
-
 function popupOpen() {
  popup.classList.add('popup_opened')
  namePopup.value = name.textContent
@@ -23,7 +21,6 @@ function popupOpen() {
 }
 
 element.addEventListener('click', popupOpen); 
-
 
 function close() {
   popup.classList.remove('popup_opened')
@@ -34,8 +31,7 @@ elementClose.addEventListener('click', close)
 function formSubmitHandler(evt) {
   evt.preventDefault();
   let nameInput = namePopup.value;
-  let jobInput = jobPopup.value;
-  
+  let jobInput = jobPopup.value;  
   name.textContent = nameInput;
   status.textContent = jobInput;
   close();
@@ -54,7 +50,6 @@ function popupNewImage() {
 }
 
 closeAddButton.addEventListener('click', closeAdd)
-
 
 const initialCards = [
   {
@@ -90,22 +85,19 @@ let cardTemplate = document.querySelector('.element-template').content;
 
 initialCards.forEach(function (element) {
   const cardElement = cardTemplate.cloneNode(true);
-
   cardElement.querySelector('.element__image').src = element.link;
-  cardElement.querySelector('.element__title').textContent = element.name;
-  
+  cardElement.querySelector('.element__title').textContent = element.name;  
   card.append(cardElement)
 })
  
 let bigImage = document.querySelector('.popup-big-image');
 
 function formSubmitImage(evt) {
-  evt.preventDefault();
-  
+  evt.preventDefault();  
   const cardElement = cardTemplate.cloneNode(true);
   cardElement.querySelector('.element__image').src = linkImage.value;
   cardElement.querySelector('.element__title').textContent = nameImage.value;
-  card.prepend(cardElement)
+  card.prepend(cardElement);
 
   let like = document.querySelector('.element__like');
   like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
@@ -125,10 +117,9 @@ function formSubmitImage(evt) {
 
 formImage.addEventListener('submit', formSubmitImage); 
 
-
 let likeList = document.querySelectorAll('.element__like');
 likeList.forEach(function (like) {
-  like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
+like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
 })
 
 
@@ -138,7 +129,6 @@ removal.addEventListener( 'click', () => { removal.closest('.element').remove() 
 })
 
 let imageOpenedList = document.querySelectorAll('.element__image');
-
 let bigOpened = document.querySelector('.popup-big-image__opened');
 let titleBig = document.querySelector('.popup-big-image__title');
 
@@ -151,12 +141,12 @@ imageOpenedList.forEach(function (imageOpened){
 })
 })
 
-
 let bigClose = document.querySelector('.popup-big-image__close');
 
 function closeBigImage() {
   bigImage.classList.remove('popup_opened')
 }
+
 bigClose.addEventListener('click', closeBigImage);
 
 
