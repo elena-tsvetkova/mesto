@@ -14,10 +14,6 @@ const addImage = document.querySelector('.profile__add-button');
 const closeAddButton = document.querySelector('.popup__close-add');
 let formImage = document.querySelector('.popup__form-new-image');
 
-let link = document.querySelector('.element__image');
-let title = document.querySelector('.element__title');
-const card = document.querySelector('.elements');
-let cardTemplate = document.querySelector('.element-template').content;
 
 
 function popupOpen() {
@@ -87,6 +83,11 @@ const initialCards = [
   }
 ];
 
+let link = document.querySelector('.element__image');
+let title = document.querySelector('.element__title');
+const card = document.querySelector('.elements');
+let cardTemplate = document.querySelector('.element-template').content;
+
 initialCards.forEach(function (element) {
   const cardElement = cardTemplate.cloneNode(true);
 
@@ -95,8 +96,9 @@ initialCards.forEach(function (element) {
   
   card.append(cardElement)
 })
-
  
+let bigImage = document.querySelector('.popup-big-image');
+
 function formSubmitImage(evt) {
   evt.preventDefault();
   
@@ -108,9 +110,15 @@ function formSubmitImage(evt) {
   let like = document.querySelector('.element__like');
   like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
 
-
   let removal = document.querySelector('.element__trash');
   removal.addEventListener( 'click', () => { removal.closest('.element').remove() })
+
+  let imageNew = document.querySelector('.element__image');
+  imageNew.addEventListener( 'click',() => {
+    bigImage.classList.add('popup_opened'); 
+    bigOpened.src = imageNew.src;
+    titleBig.textContent = imageNew.closest('.element').querySelector('.element__title').textContent
+  })
 
   closeAdd();
 }
@@ -130,28 +138,26 @@ removal.addEventListener( 'click', () => { removal.closest('.element').remove() 
 })
 
 let imageOpenedList = document.querySelectorAll('.element__image');
-let bigImage = document.querySelector('.popup-big-image');
+
 let bigOpened = document.querySelector('.popup-big-image__opened');
-let titleBig = document.querySelectorAll('.popup-big-image__title');
+let titleBig = document.querySelector('.popup-big-image__title');
 
 
 imageOpenedList.forEach(function (imageOpened){
   imageOpened.addEventListener( 'click',() => {
   bigImage.classList.add('popup_opened'); 
   bigOpened.src = imageOpened.src;
-  titleBig.textContent = title.textContent;
- 
+  titleBig.textContent = imageOpened.closest('.element').querySelector('.element__title').textContent
 })
- 
 })
 
 
 let bigClose = document.querySelector('.popup-big-image__close');
 
-function close() {
+function closeBigImage() {
   bigImage.classList.remove('popup_opened')
 }
-bigClose.addEventListener('click', close);
+bigClose.addEventListener('click', closeBigImage);
 
 
 
