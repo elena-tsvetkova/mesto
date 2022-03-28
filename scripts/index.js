@@ -2,7 +2,7 @@ const openProfileFormButton = document.querySelector('.profile__button-edit');
 const elementClose = document.querySelector('.popup__close-profil');
 const name = document.querySelector('.profile__name');
 const status = document.querySelector('.profile__status');
-const formElement = document.querySelector('.popup__form-profile');
+const popupProfileForm = document.querySelector('.popup__form-profile');
 const popup = document.querySelector('.popup-profile');
 const namePopup = document.querySelector('.popup__input_type_name');
 const jobPopup = document.querySelector('.popup__input_type_job');
@@ -12,22 +12,22 @@ const nameImage = document.querySelector('.popup__input_type_title');
 const linkImage = document.querySelector('.popup__input_type_link');
 const addImage = document.querySelector('.profile__add-button');
 const closeAddButton = document.querySelector('.popup__close-add');
-const formImage = document.querySelector('.popup__form-new-image');
+const popupformAddCard = document.querySelector('.popup__form-new-image');
 
-function popupOpen() {
- popup.classList.add('popup_opened')
- namePopup.placeholder = name.textContent
- jobPopup.placeholder = status.textContent
-}
-
-openProfileFormButton.addEventListener('click', popupOpen); 
-
-function  closePopup (popup) {
-  popup.classList.remove('popup_opened');
-  console.log('hhh')
+function openPopup (popup) {
+  popup.classList.add('popup_opened');
 } 
 
-elementClose.addEventListener('click', closePopup(popup))
+openProfileFormButton.addEventListener('click', () => {openPopup(popup)   
+  namePopup.placeholder = name.textContent
+ jobPopup.placeholder = status.textContent
+})
+
+function  closePopup (element) {
+  element.classList.remove('popup_opened');
+} 
+
+elementClose.addEventListener('click', () => {closePopup(popup)})
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -37,19 +37,11 @@ function handleProfileFormSubmit(evt) {
   document.querySelector('.popup__form-profile').reset();
 }
 
-formElement.addEventListener('submit', handleProfileFormSubmit); 
+popupProfileForm.addEventListener('submit', handleProfileFormSubmit); 
 
-function popupNewImage() {
-  newImage.classList.add('popup_opened')
- }
+ addImage.addEventListener('click', () => {openPopup(newImage)}); 
  
- addImage.addEventListener('click', popupNewImage); 
- 
-//  function closeAdd() {
-//   newImage.classList.remove('popup_opened')
-// }
-
-closeAddButton.addEventListener('click', closePopup(newImage))
+closeAddButton.addEventListener('click', () => {closePopup(newImage)})
 
 const link = document.querySelector('.element__image');
 const title = document.querySelector('.element__title');
@@ -73,14 +65,17 @@ function handleAddCardFormSubmit(evt) {
   card.prepend(cardElement);
 
   const like = document.querySelector('.element__like');
+
   like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
 
   const removal = document.querySelector('.element__trash');
+
   removal.addEventListener( 'click', () => { removal.closest('.element').remove() })
 
   const imageNew = document.querySelector('.element__image');
+
   imageNew.addEventListener( 'click',() => {
-    bigImage.classList.add('popup_opened'); 
+    openPopup(bigImage);
     bigOpened.src = imageNew.src;
     titleBig.textContent = imageNew.closest('.element').querySelector('.element__title').textContent
   })
@@ -88,7 +83,7 @@ function handleAddCardFormSubmit(evt) {
   document.querySelector('.popup__form-new-image').reset();
  }
 
-formImage.addEventListener('submit', handleAddCardFormSubmit); 
+popupformAddCard.addEventListener('submit', handleAddCardFormSubmit); 
 
 const likeList = document.querySelectorAll('.element__like');
 likeList.forEach(function (like) {
@@ -107,8 +102,8 @@ const titleBig = document.querySelector('.popup-big-image__title');
 
 
 imageOpenedList.forEach(function (imageOpened){
-  imageOpened.addEventListener( 'click',() => {
-  bigImage.classList.add('popup_opened'); 
+  imageOpened.addEventListener( 'click',() => { 
+  openPopup(bigImage);
   bigOpened.src = imageOpened.src;
   titleBig.textContent = imageOpened.closest('.element').querySelector('.element__title').textContent
 })
@@ -116,11 +111,7 @@ imageOpenedList.forEach(function (imageOpened){
 
 const bigClose = document.querySelector('.popup-big-image__close');
 
-// function closeBigImage() {
-//   bigImage.classList.remove('popup_opened')
-// }
-
-bigClose.addEventListener('click', closePopup(bigImage));
+bigClose.addEventListener('click', () => {closePopup(bigImage)});
 
 
 
