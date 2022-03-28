@@ -1,18 +1,18 @@
-let element = document.querySelector('.profile__button-edit');
-let elementClose = document.querySelector('.popup__close-profil');
-let name = document.querySelector('.profile__name');
-let status = document.querySelector('.profile__status');
-let formElement = document.querySelector('.popup__form-profile');
+const openProfileFormButton = document.querySelector('.profile__button-edit');
+const elementClose = document.querySelector('.popup__close-profil');
+const name = document.querySelector('.profile__name');
+const status = document.querySelector('.profile__status');
+const formElement = document.querySelector('.popup__form-profile');
 const popup = document.querySelector('.popup-profile');
-let namePopup = document.querySelector('.popup__input_type_name');
-let jobPopup = document.querySelector('.popup__input_type_job');
+const namePopup = document.querySelector('.popup__input_type_name');
+const jobPopup = document.querySelector('.popup__input_type_job');
 
 const newImage = document.querySelector('.popup-new-image');
 const nameImage = document.querySelector('.popup__input_type_title');
 const linkImage = document.querySelector('.popup__input_type_link');
 const addImage = document.querySelector('.profile__add-button');
 const closeAddButton = document.querySelector('.popup__close-add');
-let formImage = document.querySelector('.popup__form-new-image');
+const formImage = document.querySelector('.popup__form-new-image');
 
 function popupOpen() {
  popup.classList.add('popup_opened')
@@ -20,7 +20,7 @@ function popupOpen() {
  jobPopup.value = status.textContent
 }
 
-element.addEventListener('click', popupOpen); 
+openProfileFormButton.addEventListener('click', popupOpen); 
 
 function close() {
   popup.classList.remove('popup_opened')
@@ -30,8 +30,8 @@ elementClose.addEventListener('click', close)
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  let nameInput = namePopup.value;
-  let jobInput = jobPopup.value;  
+  const nameInput = namePopup.value;
+  const jobInput = jobPopup.value;  
   name.textContent = nameInput;
   status.textContent = jobInput;
   close();
@@ -78,10 +78,10 @@ const initialCards = [
   }
 ];
 
-let link = document.querySelector('.element__image');
-let title = document.querySelector('.element__title');
+const link = document.querySelector('.element__image');
+const title = document.querySelector('.element__title');
 const card = document.querySelector('.elements');
-let cardTemplate = document.querySelector('.element-template').content;
+const cardTemplate = document.querySelector('.element-template').content;
 
 initialCards.forEach(function (element) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -99,13 +99,13 @@ function formSubmitImage(evt) {
   cardElement.querySelector('.element__title').textContent = nameImage.value;
   card.prepend(cardElement);
 
-  let like = document.querySelector('.element__like');
+  const like = document.querySelector('.element__like');
   like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
 
-  let removal = document.querySelector('.element__trash');
+  const removal = document.querySelector('.element__trash');
   removal.addEventListener( 'click', () => { removal.closest('.element').remove() })
 
-  let imageNew = document.querySelector('.element__image');
+  const imageNew = document.querySelector('.element__image');
   imageNew.addEventListener( 'click',() => {
     bigImage.classList.add('popup_opened'); 
     bigOpened.src = imageNew.src;
@@ -117,20 +117,20 @@ function formSubmitImage(evt) {
 
 formImage.addEventListener('submit', formSubmitImage); 
 
-let likeList = document.querySelectorAll('.element__like');
+const likeList = document.querySelectorAll('.element__like');
 likeList.forEach(function (like) {
 like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
 })
 
 
-let removalList = document.querySelectorAll('.element__trash');
+const removalList = document.querySelectorAll('.element__trash');
 removalList.forEach(function (removal) {
 removal.addEventListener( 'click', () => { removal.closest('.element').remove() })
 })
 
-let imageOpenedList = document.querySelectorAll('.element__image');
-let bigOpened = document.querySelector('.popup-big-image__opened');
-let titleBig = document.querySelector('.popup-big-image__title');
+const imageOpenedList = document.querySelectorAll('.element__image');
+const bigOpened = document.querySelector('.popup-big-image__opened');
+const titleBig = document.querySelector('.popup-big-image__title');
 
 
 imageOpenedList.forEach(function (imageOpened){
@@ -141,7 +141,7 @@ imageOpenedList.forEach(function (imageOpened){
 })
 })
 
-let bigClose = document.querySelector('.popup-big-image__close');
+const bigClose = document.querySelector('.popup-big-image__close');
 
 function closeBigImage() {
   bigImage.classList.remove('popup_opened')
