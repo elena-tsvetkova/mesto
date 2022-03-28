@@ -34,8 +34,7 @@ function formSubmitHandler(evt) {
   name.textContent = namePopup.value;
   status.textContent = jobPopup.value; 
   closePopup(popup);
-  namePopup.value=''
-  jobPopup.value=''
+  document.querySelector('.popup__form-profile').reset();
 }
 
 formElement.addEventListener('submit', formSubmitHandler); 
@@ -113,9 +112,8 @@ function formSubmitImage(evt) {
     titleBig.textContent = imageNew.closest('.element').querySelector('.element__title').textContent
   })
   closePopup(newImage);
-  linkImage.value = '';
-  nameImage.value = '';
-}
+  document.querySelector('.popup__form-new-image').reset();
+ }
 
 formImage.addEventListener('submit', formSubmitImage); 
 
