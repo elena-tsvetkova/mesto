@@ -29,7 +29,7 @@ function  closePopup (popup) {
 
 elementClose.addEventListener('click', closePopup(popup))
 
-function formSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   name.textContent = namePopup.value;
   status.textContent = jobPopup.value; 
@@ -37,7 +37,7 @@ function formSubmitHandler(evt) {
   document.querySelector('.popup__form-profile').reset();
 }
 
-formElement.addEventListener('submit', formSubmitHandler); 
+formElement.addEventListener('submit', handleProfileFormSubmit); 
 
 function popupNewImage() {
   newImage.classList.add('popup_opened')
@@ -50,33 +50,6 @@ function popupNewImage() {
 // }
 
 closeAddButton.addEventListener('click', closePopup(newImage))
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 
 const link = document.querySelector('.element__image');
 const title = document.querySelector('.element__title');
@@ -92,7 +65,7 @@ initialCards.forEach(function (element) {
  
 const bigImage = document.querySelector('.popup-big-image');
 
-function formSubmitImage(evt) {
+function handleAddCardFormSubmit(evt) {
   evt.preventDefault();  
   const cardElement = cardTemplate.cloneNode(true);
   cardElement.querySelector('.element__image').src = linkImage.value;
@@ -115,7 +88,7 @@ function formSubmitImage(evt) {
   document.querySelector('.popup__form-new-image').reset();
  }
 
-formImage.addEventListener('submit', formSubmitImage); 
+formImage.addEventListener('submit', handleAddCardFormSubmit); 
 
 const likeList = document.querySelectorAll('.element__like');
 likeList.forEach(function (like) {
