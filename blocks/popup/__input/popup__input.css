@@ -8,7 +8,7 @@
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     display: block;
-    color: #C4C4C4;
+    color: #000;
 }
 
 .popup__input:focus {

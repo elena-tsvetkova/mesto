@@ -16,25 +16,26 @@ const formImage = document.querySelector('.popup__form-new-image');
 
 function popupOpen() {
  popup.classList.add('popup_opened')
- namePopup.value = name.textContent
- jobPopup.value = status.textContent
+ namePopup.placeholder = name.textContent
+ jobPopup.placeholder = status.textContent
 }
 
 openProfileFormButton.addEventListener('click', popupOpen); 
 
-function close() {
-  popup.classList.remove('popup_opened')
-}
+function  closePopup (popup) {
+  popup.classList.remove('popup_opened');
+  console.log('hhh')
+} 
 
-elementClose.addEventListener('click', close)
+elementClose.addEventListener('click', closePopup(popup))
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  const nameInput = namePopup.value;
-  const jobInput = jobPopup.value;  
-  name.textContent = nameInput;
-  status.textContent = jobInput;
-  close();
+  name.textContent = namePopup.value;
+  status.textContent = jobPopup.value; 
+  closePopup(popup);
+  namePopup.value=''
+  jobPopup.value=''
 }
 
 formElement.addEventListener('submit', formSubmitHandler); 
@@ -45,11 +46,11 @@ function popupNewImage() {
  
  addImage.addEventListener('click', popupNewImage); 
  
- function closeAdd() {
-  newImage.classList.remove('popup_opened')
-}
+//  function closeAdd() {
+//   newImage.classList.remove('popup_opened')
+// }
 
-closeAddButton.addEventListener('click', closeAdd)
+closeAddButton.addEventListener('click', closePopup(newImage))
 
 const initialCards = [
   {
@@ -90,7 +91,7 @@ initialCards.forEach(function (element) {
   card.append(cardElement)
 })
  
-let bigImage = document.querySelector('.popup-big-image');
+const bigImage = document.querySelector('.popup-big-image');
 
 function formSubmitImage(evt) {
   evt.preventDefault();  
@@ -111,8 +112,9 @@ function formSubmitImage(evt) {
     bigOpened.src = imageNew.src;
     titleBig.textContent = imageNew.closest('.element').querySelector('.element__title').textContent
   })
-
-  closeAdd();
+  closePopup(newImage);
+  linkImage.value = '';
+  nameImage.value = '';
 }
 
 formImage.addEventListener('submit', formSubmitImage); 
@@ -143,11 +145,11 @@ imageOpenedList.forEach(function (imageOpened){
 
 const bigClose = document.querySelector('.popup-big-image__close');
 
-function closeBigImage() {
-  bigImage.classList.remove('popup_opened')
-}
+// function closeBigImage() {
+//   bigImage.classList.remove('popup_opened')
+// }
 
-bigClose.addEventListener('click', closeBigImage);
+bigClose.addEventListener('click', closePopup(bigImage));
 
 
 
