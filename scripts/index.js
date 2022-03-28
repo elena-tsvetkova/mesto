@@ -57,8 +57,13 @@ initialCards.forEach(function (element) {
  
 const bigImage = document.querySelector('.popup-big-image');
 
+function createCard(name, link) {
+  
+}
+
 function handleAddCardFormSubmit(evt) {
   evt.preventDefault();  
+
   const cardElement = cardTemplate.cloneNode(true);
   cardElement.querySelector('.element__image').src = linkImage.value;
   cardElement.querySelector('.element__title').textContent = nameImage.value;
@@ -79,6 +84,7 @@ function handleAddCardFormSubmit(evt) {
     bigOpened.src = imageNew.src;
     titleBig.textContent = imageNew.closest('.element').querySelector('.element__title').textContent
   })
+
   closePopup(newImage);
   document.querySelector('.popup__form-new-image').reset();
  }
