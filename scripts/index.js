@@ -46,13 +46,15 @@ function createCard(name, link) {
   
   cardElement.querySelector('.element__image').src = link;
   cardElement.querySelector('.element__title').textContent = name;
+  cardElement.querySelector('.element__image').alt = name;
   like.addEventListener( 'click', () => { like.classList.toggle('element__like-activ') })
   removal.addEventListener( 'click', () => { removal.closest('.element').remove() })
   imageNew.addEventListener( 'click',() => {
     openPopup(popupBigImage);
     picturePopupBigImage.src = link;
-    picturePopupBigImage.alt = name; 
+    picturePopupBigImage.alt = name;
     titlePopupBigImage.textContent = name;
+    
   })
   cardContainer.prepend(cardElement);
 }
