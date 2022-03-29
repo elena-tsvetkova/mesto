@@ -14,7 +14,6 @@ const addImage = document.querySelector('.profile__add-button');
 const popupAddCardCloseButton = document.querySelector('.popup__close-add');
 const popupformAddCard = document.querySelector('.popup__form-new-image');
 
-const title = document.querySelector('.element__title');
 const cardContainer = document.querySelector('.elements');
 const cardTemplate = document.querySelector('.element-template').content;
 const popupBigImage = document.querySelector('.popup-big-image');
@@ -23,13 +22,17 @@ const popupBigImageCloseButton = document.querySelector('.popup-big-image__close
 const picturePopupBigImage = document.querySelector('.popup-big-image__opened');
 const titlePopupBigImage = document.querySelector('.popup-big-image__title');
 
-function openPopup (popupProfile) {
+function openPopup(popupProfile) {
   popupProfile.classList.add('popup_opened');
 } 
 
-function  closePopup (element) {
+function closePopup(element) {
   element.classList.remove('popup_opened');
 } 
+
+function insertCard(cardElement) {
+  cardContainer.prepend(cardElement);
+}  
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -54,17 +57,17 @@ function createCard(name, link) {
     picturePopupBigImage.src = link;
     picturePopupBigImage.alt = name;
     titlePopupBigImage.textContent = name;
-    
   })
-  cardContainer.prepend(cardElement);
+  return cardElement;  
 }
 
 function handleAddCardFormSubmit(evt) {
-  evt.preventDefault();  
-  createCard(nameImage.value, linkImage.value)
+  evt.preventDefault(); 
+  const cardElement = createCard(nameImage.value, linkImage.value);
+  insertCard(cardElement);
   closePopup(newImage);
   popupformAddCard.reset();
- }
+}
 
 openProfileFormButton.addEventListener('click', () => {openPopup(popupProfile)   
   namePopup.value = profileName.textContent
@@ -76,7 +79,8 @@ addImage.addEventListener('click', () => {openPopup(newImage)});
 popupAddCardCloseButton.addEventListener('click', () => closePopup(newImage))
 
 initialCards.forEach(function (element) {
-  createCard(element.name, element.link)
+  const cardElement = createCard(element.name, element.link);
+  insertCard(cardElement);
 })
 
 popupformAddCard.addEventListener('submit', handleAddCardFormSubmit); 
