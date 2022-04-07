@@ -85,3 +85,16 @@ initialCards.forEach(function (element) {
 
 popupformAddCard.addEventListener('submit', handleAddCardFormSubmit); 
 popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
+
+const openPopupOverleyList = document.querySelectorAll('.popup__container');
+
+// openPopupOverleyList.forEach(function (openPopupOverley) {
+// document.addEventListener( 'click', (element) => {
+// 	openPopupOverley = element.composedPath().includes(openPopupOverleyList);
+ 
+// 	if ( ! withinBoundaries ) {
+//     closePopup(openPopupOverleyList)
+// 	}
+// })
+// })
+
