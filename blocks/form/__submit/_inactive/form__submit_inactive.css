@@ -2,5 +2,5 @@
   background-color: white;
   color: #d0d0d0;
   border: 1px solid #d0d0d0;
-
+  pointer-events: none;
 }

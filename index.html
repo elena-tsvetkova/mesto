@@ -53,8 +53,10 @@
         <div class="popup__container">
           <h2 class="popup__title">Новое место</h2>
           <form class="popup__form form popup__form-new-image" novalidate name="popup-image">
-            <input type="text" tabindex="1" class="popup__input popup__input_type_title form__input" placeholder="Название" value="" name="title">
-            <input type="text" tabindex="2" class="popup__input popup__input_type_link form__input" placeholder="Ссылка на картинку" value="" name="link">
+            <input id="title-input" type="text" tabindex="1" required minlength="2" maxlength="20" class="popup__input popup__input_type_title form__input" placeholder="Название" value="" name="title">
+            <span class="form__input-error title-input-error"></span>
+            <input id="link-input" type="url" tabindex="2" required class="popup__input popup__input_type_link form__input" placeholder="Ссылка на картинку" value="" name="link">
+            <span class="form__input-error link-input-error"></span>
             <button type="submit" tabindex="3" class="popup__button form__submit">Сохранить</button>
           </form>
           <button type="button" class="popup__close popup__close-add"></button>
