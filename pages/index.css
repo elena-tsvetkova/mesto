@@ -46,3 +46,9 @@
 @import url(../blocks/profile/__status/profile__status.css);
 @import url(../blocks/profile/__grid/profile__grid.css);
 
+@import url(../blocks/form/__submit/_inactive/form__submit_inactive.css);
+@import url(../blocks/form/__input/_type_error/form__input_type_error.css);
+@import url(../blocks/form/__input-error/_active/form__input-error_active.css);
+@import url(../blocks/form/__input-error/form__input-error.css);
+
+@import url(../blocks/name-input-error/name-input-error.css);
