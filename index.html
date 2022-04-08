@@ -37,7 +37,7 @@
         </template>
          </main>
       <div class="popup popup-profile">
-        <div class="popup__container">
+        <div class="popup__container popup__common">
           <h2 class="popup__title">Редактировать профиль</h2>
           <form class="popup__form form popup__form-profile" novalidate name="popup-profil">
             <input id="name-input" type="text" tabindex="1" required minlength="2" maxlength="40" class="popup__input popup__input_type_name form__input"  placeholder="Имя" value="" name="name">
@@ -50,7 +50,7 @@
         </div>        
       </div>
       <div class="popup popup-new-image">
-        <div class="popup__container">
+        <div class="popup__container popup__common">
           <h2 class="popup__title">Новое место</h2>
           <form class="popup__form form popup__form-new-image" novalidate name="popup-image">
             <input id="title-input" type="text" tabindex="1" required minlength="2" maxlength="20" class="popup__input popup__input_type_title form__input" placeholder="Название" value="" name="title">
@@ -63,7 +63,7 @@
         </div>        
       </div>
       <div class="popup popup-big-image">
-        <div class='popup-big-image__container'>
+        <div class='popup-big-image__container popup__common'>
           <img src="#" class="popup-big-image__opened" alt="">
           <h2 class="popup-big-image__title"></h2>
           <button type="button" class="popup__close popup-big-image__close"></button>

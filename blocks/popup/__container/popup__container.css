@@ -8,7 +8,6 @@
     box-sizing: border-box;
     display: flex;
     flex-direction:column;
-    /* align-items:stretch; */
     justify-items: center;
     position: relative;
     
