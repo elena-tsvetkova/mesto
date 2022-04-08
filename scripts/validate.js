@@ -1,24 +1,3 @@
-// Вынесем все необходимые элементы формы в константы
-const formElement = document.querySelector('.form');
-const formInput = formElement.querySelector('.form__input');
-const formError = formElement.querySelector(`.${formInput.id}-error`);
-
-const showInputError = (formElement, inputElement, errorMessage) => {
-  // Находим элемент ошибки внутри самой функции
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add('form__input_type_error');
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__input-error_active');
-};
-
-const hideInputError = (formElement, inputElement) => {
-  // Находим элемент ошибки
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('form__input_type_error');
-  errorElement.classList.remove('form__input-error_active');
-  errorElement.textContent = '';
-}; 
-
 // Функция, которая проверяет валидность поля
 const isValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
@@ -46,18 +25,6 @@ const hasInvalidInput = (inputList) => {
 
     return !inputElement.validity.valid;
   })
-}; 
-
-
-const toggleButtonState = (inputList, buttonElement) => {
-  // Если есть хотя бы один невалидный инпут
-  if (hasInvalidInput(inputList)) {
-    // сделай кнопку неактивной
-    buttonElement.classList.add('form__submit_inactive');
-  } else {
-    // иначе сделай кнопку активной
-    buttonElement.classList.remove('form__submit_inactive');
-  }
 }; 
 
 const setEventListeners = (formElement) => {

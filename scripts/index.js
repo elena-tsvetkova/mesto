@@ -87,12 +87,57 @@ popupformAddCard.addEventListener('submit', handleAddCardFormSubmit);
 popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
 
 
+// Вынесем все необходимые элементы формы в константы
+const formElement = document.querySelector('.form');
+const formInput = formElement.querySelector('.form__input');
+const formError = formElement.querySelector(`.${formInput.id}-error`);
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+  // Находим элемент ошибки внутри самой функции
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add('form__input_type_error');
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add('form__input-error_active');
+};
+
+const hideInputError = (formElement, inputElement) => {
+  // Находим элемент ошибки
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove('form__input_type_error');
+  errorElement.classList.remove('form__input-error_active');
+  errorElement.textContent = '';
+}; 
+
+const toggleButtonState = (inputList, buttonElement) => {
+  // Если есть хотя бы один невалидный инпут
+  if (hasInvalidInput(inputList)) {
+    // сделай кнопку неактивной
+    buttonElement.classList.add('form__submit_inactive');
+  } else {
+    // иначе сделай кнопку активной
+    buttonElement.classList.remove('form__submit_inactive');
+  }
+}; 
 
 
 
-const overlay = document.querySelector('.popup')
 
-overlay.addEventListener('click', function() {
-  document.querySelector('.popup_opened').classList.remove('popup_opened');
-  this.classList.remove('popup_opened');
-});
+const overlayArr = document.querySelectorAll('.popup')
+
+// overlayArr.forEach (function (overlay) {
+// overlay.addEventListener('click', function() {
+//   document.querySelector('.popup_opened').classList.remove('popup_opened');
+//   this.classList.remove('popup_opened');
+// })
+// })
+
+// const div = document.querySelector('.popup__common');
+ 
+// document.addEventListener('click', (e) => {
+// 	const withinBoundaries = e.composedPath().includes(div);
+//  console.log(1)
+// 	if (! withinBoundaries ) {
+//     console.log(2)
+// 		div.classList.remove('popup_opened');  // скрываем элемент т к клик был за его пределами
+// 	}
+// })
