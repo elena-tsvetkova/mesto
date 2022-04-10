@@ -21,13 +21,38 @@ const popupBigImageCloseButton = document.querySelector('.popup-big-image__close
 
 const picturePopupBigImage = document.querySelector('.popup-big-image__opened');
 const titlePopupBigImage = document.querySelector('.popup-big-image__title');
+const popupClicOpenArr = document.querySelectorAll('.popup')
+
+
+const closePopupWithEsc = (evt) => {
+  const popupOpenedArr = document.querySelectorAll('.popup_opened');
+  popupOpenedArr.forEach(function (popupOpened) {
+    if (evt.key === 'Escape') {
+    closePopup(popupOpened);
+  }
+})
+}
+
+function closeOverlayClick (evt) {
+  const popupOpened = document.querySelector('.popup_opened');
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupOpened);
+  }
+}
+
+popupClicOpenArr.forEach(function (popupClicOpen) {
+  popupClicOpen.addEventListener('click', closeOverlayClick);
+})
+
 
 function openPopup(popupProfile) {
   popupProfile.classList.add('popup_opened');
+  document.addEventListener ('keyup', closePopupWithEsc);
 } 
 
 function closePopup(element) {
   element.classList.remove('popup_opened');
+  document.removeEventListener ('keyup', closePopupWithEsc);
 } 
 
 function insertCard(cardElement) {
@@ -87,6 +112,7 @@ popupformAddCard.addEventListener('submit', handleAddCardFormSubmit);
 popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
 
 
+
 // Вынесем все необходимые элементы формы в константы
 const formElement = document.querySelector('.form');
 const formInput = formElement.querySelector('.form__input');
@@ -120,24 +146,3 @@ const toggleButtonState = (inputList, buttonElement) => {
 }; 
 
 
-
-
-const overlayArr = document.querySelectorAll('.popup')
-
-// overlayArr.forEach (function (overlay) {
-// overlay.addEventListener('click', function() {
-//   document.querySelector('.popup_opened').classList.remove('popup_opened');
-//   this.classList.remove('popup_opened');
-// })
-// })
-
-// const div = document.querySelector('.popup__common');
- 
-// document.addEventListener('click', (e) => {
-// 	const withinBoundaries = e.composedPath().includes(div);
-//  console.log(1)
-// 	if (! withinBoundaries ) {
-//     console.log(2)
-// 		div.classList.remove('popup_opened');  // скрываем элемент т к клик был за его пределами
-// 	}
-// })
