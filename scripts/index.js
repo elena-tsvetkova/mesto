@@ -21,7 +21,7 @@ const popupBigImageCloseButton = document.querySelector('.popup-big-image__close
 
 const picturePopupBigImage = document.querySelector('.popup-big-image__opened');
 const titlePopupBigImage = document.querySelector('.popup-big-image__title');
-const popupClicOpenArr = document.querySelectorAll('.popup')
+const popupClicOpenArr = document.querySelectorAll('.popup');
 
 
 const closePopupWithEsc = (evt) => {
@@ -29,6 +29,11 @@ const closePopupWithEsc = (evt) => {
   popupOpenedArr.forEach(function (popupOpened) {
     if (evt.key === 'Escape') {
     closePopup(popupOpened);
+
+    const popupOpenedInputArr = popupOpened.querySelectorAll('.popup__input')
+    popupOpenedInputArr.forEach(function (popupOpenedInput) {
+    hideInputError(popupOpened.querySelector('.popup__form'), popupOpenedInput)
+  })
   }
 })
 }
@@ -37,6 +42,10 @@ function closeOverlayClick (evt) {
   const popupOpened = document.querySelector('.popup_opened');
   if (evt.target === evt.currentTarget) {
     closePopup(popupOpened);
+    const popupOpenedInputArr = popupOpened.querySelectorAll('.popup__input')
+    popupOpenedInputArr.forEach(function (popupOpenedInput) {
+    hideInputError(popupOpened.querySelector('.popup__form'), popupOpenedInput)
+  })
   }
 }
 
@@ -48,11 +57,14 @@ popupClicOpenArr.forEach(function (popupClicOpen) {
 function openPopup(popupProfile) {
   popupProfile.classList.add('popup_opened');
   document.addEventListener ('keyup', closePopupWithEsc);
+  enableValidation(); 
+
 } 
 
 function closePopup(element) {
   element.classList.remove('popup_opened');
   document.removeEventListener ('keyup', closePopupWithEsc);
+  element.querySelector('.popup__form ').reset()
 } 
 
 function insertCard(cardElement) {
@@ -61,10 +73,11 @@ function insertCard(cardElement) {
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
+ 
   profileName.textContent = namePopup.value;
   profileStatus.textContent = jobPopup.value; 
   closePopup(popupProfile);
-}
+  }
 
 function createCard(name, link) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -83,6 +96,7 @@ function createCard(name, link) {
     picturePopupBigImage.alt = name;
     titlePopupBigImage.textContent = name;
   })
+
   return cardElement;  
 }
 
@@ -93,25 +107,6 @@ function handleAddCardFormSubmit(evt) {
   closePopup(newImage);
   popupformAddCard.reset();
 }
-
-openProfileFormButton.addEventListener('click', () => {openPopup(popupProfile)   
-  namePopup.value = profileName.textContent
- jobPopup.value = profileStatus.textContent
-})
-popupProfileCloseButton.addEventListener('click', () => closePopup(popupProfile))
-popupProfileForm.addEventListener('submit', handleProfileFormSubmit); 
-addImage.addEventListener('click', () => {openPopup(newImage)}); 
-popupAddCardCloseButton.addEventListener('click', () => closePopup(newImage))
-
-initialCards.forEach(function (element) {
-  const cardElement = createCard(element.name, element.link);
-  insertCard(cardElement);
-})
-
-popupformAddCard.addEventListener('submit', handleAddCardFormSubmit); 
-popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
-
-
 
 // Вынесем все необходимые элементы формы в константы
 const formElement = document.querySelector('.form');
@@ -144,5 +139,44 @@ const toggleButtonState = (inputList, buttonElement) => {
     buttonElement.classList.remove('form__submit_inactive');
   }
 }; 
+
+
+openProfileFormButton.addEventListener('click', () => {
+  openPopup(popupProfile) 
+  namePopup.value = profileName.textContent
+ jobPopup.value = profileStatus.textContent
+ enableValidation(); 
+ })
+
+popupProfileCloseButton.addEventListener('click', () => {
+  closePopup(popupProfile)
+  const popupProfileInputArr = popupProfile.querySelectorAll('.popup__input')
+  popupProfileInputArr.forEach(function (popupProfileInput) {
+    hideInputError(popupProfile.querySelector('.popup__form'), popupProfileInput)
+  })
+  })
+
+popupProfileForm.addEventListener('submit', handleProfileFormSubmit); 
+
+addImage.addEventListener('click', () => openPopup(newImage));
+
+popupAddCardCloseButton.addEventListener('click', () => {
+  closePopup(newImage)
+  const newImageInputArr = newImage.querySelectorAll('.popup__input')
+  newImageInputArr.forEach(function (newImageInput) {
+    hideInputError(newImage.querySelector('.popup__form'), newImageInput)
+  })
+})
+
+initialCards.forEach(function (element) {
+  const cardElement = createCard(element.name, element.link);
+  insertCard(cardElement);
+})
+
+popupformAddCard.addEventListener('submit', handleAddCardFormSubmit); 
+popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
+
+
+
 
 

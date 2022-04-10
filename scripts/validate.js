@@ -63,6 +63,6 @@ const enableValidation = () => {
 };
 
 // Вызовем функцию
-enableValidation(); 
+// enableValidation(); 
 
 
