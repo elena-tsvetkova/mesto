@@ -53,12 +53,10 @@ popupClicOpenArr.forEach(function (popupClicOpen) {
   popupClicOpen.addEventListener('click', closeOverlayClick);
 })
 
-
 function openPopup(popupProfile) {
   popupProfile.classList.add('popup_opened');
   document.addEventListener ('keyup', closePopupWithEsc);
   enableValidation(); 
-
 } 
 
 function closePopup(element) {
@@ -108,13 +106,11 @@ function handleAddCardFormSubmit(evt) {
   popupformAddCard.reset();
 }
 
-// Вынесем все необходимые элементы формы в константы
 const formElement = document.querySelector('.form');
 const formInput = formElement.querySelector('.form__input');
 const formError = formElement.querySelector(`.${formInput.id}-error`);
 
 const showInputError = (formElement, inputElement, errorMessage) => {
-  // Находим элемент ошибки внутри самой функции
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add('form__input_type_error');
   errorElement.textContent = errorMessage;
@@ -122,7 +118,6 @@ const showInputError = (formElement, inputElement, errorMessage) => {
 };
 
 const hideInputError = (formElement, inputElement) => {
-  // Находим элемент ошибки
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove('form__input_type_error');
   errorElement.classList.remove('form__input-error_active');
@@ -130,16 +125,12 @@ const hideInputError = (formElement, inputElement) => {
 }; 
 
 const toggleButtonState = (inputList, buttonElement) => {
-  // Если есть хотя бы один невалидный инпут
   if (hasInvalidInput(inputList)) {
-    // сделай кнопку неактивной
     buttonElement.classList.add('form__submit_inactive');
   } else {
-    // иначе сделай кнопку активной
     buttonElement.classList.remove('form__submit_inactive');
   }
 }; 
-
 
 openProfileFormButton.addEventListener('click', () => {
   openPopup(popupProfile) 
@@ -174,6 +165,7 @@ initialCards.forEach(function (element) {
 })
 
 popupformAddCard.addEventListener('submit', handleAddCardFormSubmit); 
+
 popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
 
 
