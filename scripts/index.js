@@ -26,7 +26,7 @@ const popups = document.querySelectorAll('.popup');
 const settings = {
     formSelector: '.form',
     inputSelector: '.form__input',
-    buttonSelector: '.form__submit',
+    buttonSelector: '.popup__button',
     inactiveButtonClass: 'form__submit_inactive', // неактивная кнопка серый цвет
     inputErrorClass: 'form__input-error_active', //  сообщение об ошибке
     errorClass: 'form__input_type_error' //красное подчеркивание
@@ -109,6 +109,7 @@ function handleAddCardFormSubmit(evt) {
 }
 
 openProfileFormButton.addEventListener('click', () => {
+    activeButtonElement(popupProfile.querySelector('.popup__button'), settings)
     openPopup(popupProfile)
     namePopup.value = profileName.textContent
     jobPopup.value = profileStatus.textContent
@@ -126,6 +127,7 @@ popupProfileCloseButton.addEventListener('click', () => {
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addImage.addEventListener('click', () => {
+    disableButtonElement(newImage.querySelector('.popup__button'), settings);
     openPopup(newImage)
     const newImageInputArr = newImage.querySelectorAll('.popup__input')
     newImageInputArr.forEach(function (newImageInput) {
