@@ -52,10 +52,6 @@ popups.forEach(function (popup) {
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keyup', closeByEscape);
-    const popupForm = popup.querySelector('.popup__form')
-    if (popupForm) {
-        popupForm.reset()
-    }
 }
 
 function closePopup(element) {
@@ -131,9 +127,10 @@ addImage.addEventListener('click', () => {
     openPopup(newImage)
     const newImageInputArr = newImage.querySelectorAll('.popup__input')
     newImageInputArr.forEach(function (newImageInput) {
-        hideInputError(newImage.querySelector('.popup__form'), newImageInput)
-    })
-});
+     hideInputError(newImage.querySelector('.popup__form'), newImageInput)
+     })
+     newImage.querySelector('.popup__form').reset()
+ });
 
 popupAddCardCloseButton.addEventListener('click', () => {
     closePopup(newImage)
