@@ -1,3 +1,5 @@
+ import {Card} from './Card.js';
+
 const openProfileFormButton = document.querySelector('.profile__button-edit');
 const popupProfileCloseButton = document.querySelector('.popup__close-profil');
 const profileName = document.querySelector('.profile__name');
@@ -49,7 +51,7 @@ const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
-  
+
 const settings = {
     formSelector: '.form',
     inputSelector: '.form__input',
@@ -76,7 +78,7 @@ popups.forEach(function (popup) {
     popup.addEventListener('click', closeOverlayClick);
 })
 
-function openPopup(popup) {
+export function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keyup', closeByEscape);
 }
@@ -98,34 +100,11 @@ function handleProfileFormSubmit(evt) {
     closePopup(popupProfile);
 }
 
-function createCard(name, link) {
-    const cardElement = cardTemplate.cloneNode(true);
-    const like = cardElement.querySelector('.element__like');
-    const removal = cardElement.querySelector('.element__trash');
-    const imageNew = cardElement.querySelector('.element__image');
-
-    cardElement.querySelector('.element__image').src = link;
-    cardElement.querySelector('.element__title').textContent = name;
-    cardElement.querySelector('.element__image').alt = name;
-    like.addEventListener('click', () => {
-        like.classList.toggle('element__like-activ')
-    })
-    removal.addEventListener('click', () => {
-        removal.closest('.element').remove()
-    })
-    imageNew.addEventListener('click', () => {
-        openPopup(popupBigImage);
-        picturePopupBigImage.src = link;
-        picturePopupBigImage.alt = name;
-        titlePopupBigImage.textContent = name;
-    })
-
-    return cardElement;
-}
 
 function handleAddCardFormSubmit(evt) {
     evt.preventDefault();
-    const cardElement = createCard(nameImage.value, linkImage.value);
+    const card = new Card('.element-template', nameImage.value, linkImage.value);
+    const cardElement = card.generateCard();
     insertCard(cardElement);
     closePopup(newImage);
     popupformAddCard.reset();
@@ -144,7 +123,7 @@ openProfileFormButton.addEventListener('click', () => {
 
 popupProfileCloseButton.addEventListener('click', () => {
     closePopup(popupProfile)
-    popupProfile.querySelector('.popup__form ').reset()
+    popupProfile.querySelector('.popup__form').reset()
 })
 
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
@@ -161,11 +140,12 @@ addImage.addEventListener('click', () => {
 
 popupAddCardCloseButton.addEventListener('click', () => {
     closePopup(newImage)
-    newImage.querySelector('.popup__form ').reset()
+    newImage.querySelector('.popup__form').reset()
 })
 
 initialCards.forEach(function (element) {
-    const cardElement = createCard(element.name, element.link);
+    const card = new Card('.element-template', element.name, element.link);
+    const cardElement = card.generateCard();
     insertCard(cardElement);
 })
 
