@@ -1,4 +1,5 @@
  import {Card} from './Card.js';
+ import {FormValidator} from './FormValidator.js'
 
 const openProfileFormButton = document.querySelector('.profile__button-edit');
 const popupProfileCloseButton = document.querySelector('.popup__close-profil');
@@ -110,6 +111,16 @@ function handleAddCardFormSubmit(evt) {
     popupformAddCard.reset();
 }
 
+const disableButtonElement = (buttonElement, settings) => {
+    buttonElement.classList.add(settings.inactiveButtonClass);
+    buttonElement.disabled = true;
+}
+    
+const activeButtonElement = (buttonElement, settings) => {
+    buttonElement.classList.remove(settings.inactiveButtonClass);
+    buttonElement.disabled = false;
+}
+
 openProfileFormButton.addEventListener('click', () => {
     activeButtonElement(popupProfile.querySelector('.popup__button'), settings)
     openPopup(popupProfile)
@@ -152,3 +163,9 @@ initialCards.forEach(function (element) {
 popupformAddCard.addEventListener('submit', handleAddCardFormSubmit);
 
 popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
+
+const editProfileValidate = new FormValidator (settings, popupProfileForm);
+editProfileValidate.enableValidation();
+
+const addProfileValidate = new FormValidator (settings, popupformAddCard);
+addProfileValidate.enableValidation();
