@@ -18,12 +18,9 @@ const popupAddCardCloseButton = document.querySelector('.popup__close-add');
 const popupformAddCard = document.querySelector('.popup__form-new-image');
 
 const cardContainer = document.querySelector('.elements');
-const cardTemplate = document.querySelector('.element-template').content;
 const popupBigImage = document.querySelector('.popup-big-image');
 const popupBigImageCloseButton = document.querySelector('.popup-big-image__close');
 
-const picturePopupBigImage = document.querySelector('.popup-big-image__opened');
-const titlePopupBigImage = document.querySelector('.popup-big-image__title');
 const popups = document.querySelectorAll('.popup');
 
 const initialCards = [
@@ -62,6 +59,13 @@ const settings = {
     errorClass: 'form__input_type_error' //красное подчеркивание
 };
 
+
+const editProfileValidate = new FormValidator (settings, popupProfileForm);
+editProfileValidate.enableValidation();
+
+const addProfileValidate = new FormValidator (settings, popupformAddCard);
+addProfileValidate.enableValidation();
+
 const closeByEscape = (evt) => {
     if (evt.key === 'Escape') {
         const openedPopup = document.querySelector('.popup_opened')
@@ -95,7 +99,6 @@ function insertCard(cardElement) {
 
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
-
     profileName.textContent = namePopup.value;
     profileStatus.textContent = jobPopup.value;
     closePopup(popupProfile);
@@ -111,26 +114,18 @@ function handleAddCardFormSubmit(evt) {
     popupformAddCard.reset();
 }
 
-const disableButtonElement = (buttonElement, settings) => {
-    buttonElement.classList.add(settings.inactiveButtonClass);
-    buttonElement.disabled = true;
-}
-    
-const activeButtonElement = (buttonElement, settings) => {
-    buttonElement.classList.remove(settings.inactiveButtonClass);
-    buttonElement.disabled = false;
-}
 
 openProfileFormButton.addEventListener('click', () => {
-    activeButtonElement(popupProfile.querySelector('.popup__button'), settings)
-    openPopup(popupProfile)
     namePopup.value = profileName.textContent
     jobPopup.value = profileStatus.textContent
+    editProfileValidate.toggleButtonState()
+    openPopup(popupProfile)
     const popupProfileInputArr = popupProfile.querySelectorAll('.popup__input')
     popupProfileInputArr.forEach(function (popupProfileInput) {
-        hideInputError(popupProfile.querySelector('.popup__form'), popupProfileInput)
+        editProfileValidate.hideInputError(popupProfile.querySelector('.popup__form'), popupProfileInput)
     })
 })
+
 
 popupProfileCloseButton.addEventListener('click', () => {
     closePopup(popupProfile)
@@ -140,11 +135,11 @@ popupProfileCloseButton.addEventListener('click', () => {
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addImage.addEventListener('click', () => {
-    disableButtonElement(newImage.querySelector('.popup__button'), settings);
+    addProfileValidate.toggleButtonState()
     openPopup(newImage)
     const newImageInputArr = newImage.querySelectorAll('.popup__input')
     newImageInputArr.forEach(function (newImageInput) {
-     hideInputError(newImage.querySelector('.popup__form'), newImageInput)
+        editProfileValidate.hideInputError(newImage.querySelector('.popup__form'), newImageInput)
      })
      newImage.querySelector('.popup__form').reset()
  });
@@ -163,9 +158,3 @@ initialCards.forEach(function (element) {
 popupformAddCard.addEventListener('submit', handleAddCardFormSubmit);
 
 popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
-
-const editProfileValidate = new FormValidator (settings, popupProfileForm);
-editProfileValidate.enableValidation();
-
-const addProfileValidate = new FormValidator (settings, popupformAddCard);
-addProfileValidate.enableValidation();
