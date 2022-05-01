@@ -7,10 +7,12 @@ const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__status');
 const popupProfileForm = document.querySelector('.popup__form-profile');
 const popupProfile = document.querySelector('.popup-profile');
+const popupProfileFormGeneral = popupProfile.querySelector('.popup__form')
 const namePopup = document.querySelector('.popup__input_type_name');
 const jobPopup = document.querySelector('.popup__input_type_job');
 
 const newImage = document.querySelector('.popup-new-image');
+const newImageFormGeneral = newImage.querySelector('.popup__form')
 const nameImage = document.querySelector('.popup__input_type_title');
 const linkImage = document.querySelector('.popup__input_type_link');
 const addImage = document.querySelector('.profile__add-button');
@@ -129,7 +131,7 @@ openProfileFormButton.addEventListener('click', () => {
 
 popupProfileCloseButton.addEventListener('click', () => {
     closePopup(popupProfile)
-    popupProfile.querySelector('.popup__form').reset()
+    popupProfileFormGeneral = popupProfile.querySelector('.popup__form').reset()
 })
 
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
@@ -139,14 +141,14 @@ addImage.addEventListener('click', () => {
     openPopup(newImage)
     const newImageInputArr = newImage.querySelectorAll('.popup__input')
     newImageInputArr.forEach(function (newImageInput) {
-        editProfileValidate.hideInputError(newImage.querySelector('.popup__form'), newImageInput)
+        editProfileValidate.hideInputError(newImageFormGeneral, newImageInput)
      })
-     newImage.querySelector('.popup__form').reset()
+     newImageFormGeneral.reset()
  });
 
 popupAddCardCloseButton.addEventListener('click', () => {
     closePopup(newImage)
-    newImage.querySelector('.popup__form').reset()
+    newImageFormGeneral.reset()
 })
 
 initialCards.forEach(function (element) {
