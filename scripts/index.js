@@ -120,30 +120,22 @@ function handleAddCardFormSubmit(evt) {
 openProfileFormButton.addEventListener('click', () => {
     namePopup.value = profileName.textContent
     jobPopup.value = profileStatus.textContent
-    editProfileValidate.toggleButtonState()
+    editProfileValidate.resetValidation()
     openPopup(popupProfile)
-    const popupProfileInputArr = popupProfile.querySelectorAll('.popup__input')
-    popupProfileInputArr.forEach(function (popupProfileInput) {
-        editProfileValidate.hideInputError(popupProfile.querySelector('.popup__form'), popupProfileInput)
-    })
 })
 
 
 popupProfileCloseButton.addEventListener('click', () => {
     closePopup(popupProfile)
-    popupProfileFormGeneral = popupProfile.querySelector('.popup__form').reset()
+    popupProfileFormGeneral.reset()
 })
 
 popupProfileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addImage.addEventListener('click', () => {
-    addProfileValidate.toggleButtonState()
+    addProfileValidate.resetValidation()
     openPopup(newImage)
-    const newImageInputArr = newImage.querySelectorAll('.popup__input')
-    newImageInputArr.forEach(function (newImageInput) {
-        editProfileValidate.hideInputError(newImageFormGeneral, newImageInput)
-     })
-     newImageFormGeneral.reset()
+    newImageFormGeneral.reset()
  });
 
 popupAddCardCloseButton.addEventListener('click', () => {
@@ -160,3 +152,9 @@ initialCards.forEach(function (element) {
 popupformAddCard.addEventListener('submit', handleAddCardFormSubmit);
 
 popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
+
+// function handleCardClick(name, link) {
+//     устанавливаем ссылку
+//     устанавливаем подпись картинке
+//     открываем попап универсальной функцией, которая навешивает обработчик Escape внутри себя
+//   }
