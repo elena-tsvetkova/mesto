@@ -93,11 +93,14 @@ function handleProfileFormSubmit(evt) {
     closePopup(popupProfile);
 }
 
+function createCard(name, link) {
+     const card = new Card('.element-template', name, link);
+     return card.generateCard();
+}
+
 function handleAddCardFormSubmit(evt) {
     evt.preventDefault();
-    const card = new Card('.element-template', nameImage.value, linkImage.value);
-    const cardElement = card.generateCard();
-    insertCard(cardElement);
+    insertCard(createCard(nameImage.value, linkImage.value));
     closePopup(newImage);
     popupformAddCard.reset();
 }
@@ -130,17 +133,9 @@ addImage.addEventListener('click', () => {
  });
 
 initialCards.forEach(function (element) {
-    const card = new Card('.element-template', element.name, element.link);
-    const cardElement = card.generateCard();
-    insertCard(cardElement);
+    insertCard(createCard(element.name, element.link));
 })
 
 popupformAddCard.addEventListener('submit', handleAddCardFormSubmit);
 
 popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
-
-// function handleCardClick(name, link) {
-//     устанавливаем ссылку
-//     устанавливаем подпись картинке
-//     открываем попап универсальной функцией, которая навешивает обработчик Escape внутри себя
-//   }
