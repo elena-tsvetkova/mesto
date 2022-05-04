@@ -5,6 +5,9 @@ export class Card {
     this._template = template;
     this._name = name;
     this._link = link;
+    this._titlePopupBigImage = document.querySelector('.popup-big-image__title');
+    this._popupBigImage = document.querySelector('.popup-big-image');
+    this._picturePopupBigImage = document.querySelector('.popup-big-image__opened');
   }
 
   _getTemplate() {
@@ -24,10 +27,7 @@ export class Card {
     return this._element;
   }
 
-  _openPopupBigImage() {
-    this._titlePopupBigImage = document.querySelector('.popup-big-image__title');
-    this._popupBigImage = document.querySelector('.popup-big-image');
-    this._picturePopupBigImage = document.querySelector('.popup-big-image__opened');
+  _openPopupBigImage() {    
     this._picturePopupBigImage.src = this._link;
     this._picturePopupBigImage.alt = this._name;
     this._titlePopupBigImage.textContent = this._name;

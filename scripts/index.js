@@ -137,5 +137,3 @@ initialCards.forEach(function (element) {
 })
 
 popupformAddCard.addEventListener('submit', handleAddCardFormSubmit);
-
-popupBigImageCloseButton.addEventListener('click', () => closePopup(popupBigImage));
