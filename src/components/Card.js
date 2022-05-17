@@ -1,10 +1,11 @@
-import {openPopup} from './index.js'
+// import {openPopup} from './index.js'
 
 export class Card {
-  constructor (template, name, link) {
+  constructor ({data, handleCardClick}, template) {
     this._template = template;
-    this._name = name;
-    this._link = link;
+    this._name = data.name;
+    this._link = data.link;
+    this._handleCardClick = handleCardClick;
     this._titlePopupBigImage = document.querySelector('.popup-big-image__title');
     this._popupBigImage = document.querySelector('.popup-big-image');
     this._picturePopupBigImage = document.querySelector('.popup-big-image__opened');
@@ -27,17 +28,17 @@ export class Card {
     return this._element;
   }
 
-  _openPopupBigImage() {    
-    this._picturePopupBigImage.src = this._link;
-    this._picturePopupBigImage.alt = this._name;
-    this._titlePopupBigImage.textContent = this._name;
-    openPopup(this._popupBigImage)
-  }
+  // _openPopupBigImage() {    
+  //   this._picturePopupBigImage.src = this._link;
+  //   this._picturePopupBigImage.alt = this._name;
+  //   this._titlePopupBigImage.textContent = this._name;
+  //   openPopup(this._popupBigImage)
+  // }
 
   _setEventListeners() {
     this._like.addEventListener('click', () => { this._like.classList.toggle('element__like-activ')})
     this._removal.addEventListener('click', () => { this._removal.closest('.element').remove() })
-    this._imageNew.addEventListener('click', () => { this._openPopupBigImage() })
+    this._imageNew.addEventListener('click', () => { this._handleCardClick(this._name, this._link) })
   }
 
 }
