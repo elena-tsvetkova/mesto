@@ -6,7 +6,7 @@ export class PopupWithForm extends Popup {
         super (popup);
         this._callbackSubmit = callbackSubmit;
 
-        this._formElement = this._popup.querySelector('.popup__form-profile');
+        this._formElement = this._popup.querySelector('.popup__form');
         this._inputList = this._formElement.querySelectorAll('.form__input');
     }
 1   

@@ -1,7 +1,7 @@
 export class UserInfo {
-  constructor ({nameValueSelector, jobValueSelector}) {
-      this._nameValue = document.querySelector(nameValueSelector);
-      this._jobValue = document.querySelector(jobValueSelector);
+  constructor ({profileName, profileStatus}) {
+      this._nameValue = document.querySelector(profileName);
+      this._jobValue = document.querySelector(profileStatus);
 
       this._nameInput = document.querySelector('.popup__input_type_name');
       this._jobInput = document.querySelector('.popup__input_type_job');
@@ -17,7 +17,7 @@ export class UserInfo {
   }
 
   setUserInfo (data) {
-      this._nameValue.textContent = data.username;
-      this._jobValue.textContent = data.job;
+      this._nameValue.textContent = data.name;
+      this._jobValue.textContent = data.status;
   }
 }

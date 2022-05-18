@@ -1,5 +1,3 @@
-// import {openPopup} from './index.js'
-
 export class Card {
   constructor ({data, handleCardClick}, template) {
     this._template = template;
@@ -12,7 +10,8 @@ export class Card {
   }
 
   _getTemplate() {
-    return document.querySelector(this._template).content.cloneNode(true);
+    return document.querySelector('.element-template').content.querySelector('.element').cloneNode(true);
+// TODO: убрать хардкод селекторов в константы
   }
 
     generateCard() {
@@ -23,17 +22,10 @@ export class Card {
     this._element.querySelector('.element__image').src = this._link;
     this._element.querySelector('.element__title').textContent = this._name;
     this._element.querySelector('.element__image').alt = this._name;
-
+ 
     this._setEventListeners();
     return this._element;
   }
-
-  // _openPopupBigImage() {    
-  //   this._picturePopupBigImage.src = this._link;
-  //   this._picturePopupBigImage.alt = this._name;
-  //   this._titlePopupBigImage.textContent = this._name;
-  //   openPopup(this._popupBigImage)
-  // }
 
   _setEventListeners() {
     this._like.addEventListener('click', () => { this._like.classList.toggle('element__like-activ')})
