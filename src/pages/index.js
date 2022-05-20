@@ -17,6 +17,9 @@ import './index.css';
   popupBigImage,
   initialCards,
   settings,
+  elementTemplate,
+  namePopup,
+  jobPopup,
   } from '../utils/constants.js';
  
 
@@ -34,7 +37,7 @@ const createNewCard = function creatNewCard (data) {
       handleCardClick: (name, link) => {
         functionBigImagePopup.open(name, link);
       }
-    },  cardContainer);
+    },  elementTemplate);
     const cardElement = card.generateCard();
     return cardElement;
   }
@@ -51,14 +54,16 @@ const createNewCard = function creatNewCard (data) {
 const createUserInfo = new UserInfo(profileInfo);
 
 const popupWithFormEdit = new PopupWithForm (
-  {callbackSubmit: (data) => {
+  {submitCallback : (data) => {
       createUserInfo.setUserInfo(data);
       popupWithFormEdit.close();
   }}, popupProfile);
 popupWithFormEdit.setEventListeners();
 
 function editProfile() {
-    createUserInfo.getUserInfo();
+    const userData = createUserInfo.getUserInfo();
+    namePopup.value = userData.username
+    jobPopup.value = userData.job
     editProfileValidate.resetValidation();
     popupWithFormEdit.open();
   }
@@ -67,7 +72,7 @@ openProfileFormButton.addEventListener('click', () => {editProfile()});
 
 
 const popupWithFormAdd = new PopupWithForm (
-    { callbackSubmit: (data) => {     
+    { submitCallback : (data) => {     
       const cardFromPopup = createNewCard (data);
       creatCard.addItem(cardFromPopup);
       popupWithFormAdd.close();

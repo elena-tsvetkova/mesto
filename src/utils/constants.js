@@ -1,6 +1,4 @@
 export const openProfileFormButton = document.querySelector('.profile__button-edit');
-// export const profileName = document.querySelector('.profile__name');
-// export const profileStatus = document.querySelector('.profile__status');
 export const profileInfo = {
   profileName: '.profile__name',
   profileStatus: '.profile__status'
@@ -18,12 +16,13 @@ export const addImage = document.querySelector('.profile__add-button');
 export const popupformAddCard = document.querySelector('.popup__form-new-image');
 
 export const cardContainer = document.querySelector('.elements');
+export const elementTemplate = document.querySelector('.element-template');
 export const popupBigImage = document.querySelector('.popup-big-image');
 export const popupBigImageCloseButton = document.querySelector('.popup-big-image__close');
 
 export const popups = document.querySelectorAll('.popup');
-
 export const elementsCardsContainer = document.querySelector('.element__image');
+
 
 export const initialCards = [
     {

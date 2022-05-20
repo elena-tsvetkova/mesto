@@ -41,14 +41,14 @@ _hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => { return !inputElement.validity.valid })
 }
 
-_disableButtonElement = (buttonElement) => {
-  buttonElement.classList.add(this._inactiveButtonClass);
-  buttonElement.disabled = true;
+_disableButtonElement = () => {
+  this._buttonElement.classList.add(this._inactiveButtonClass);
+  this._buttonElement.disabled = true;
 }
   
-_activeButtonElement = (buttonElement) => {
-  buttonElement.classList.remove(this._inactiveButtonClass);
-  buttonElement.disabled = false;
+_activeButtonElement = () => {
+  this._buttonElement.classList.remove(this._inactiveButtonClass);
+  this._buttonElement.disabled = false;
 }
 
 _toggleButtonState = () => {
@@ -76,7 +76,7 @@ resetValidation() {
 
 enableValidation = () => {
    this._form.addEventListener('submit', (evt) => { evt.preventDefault() });
-   this._setEventListeners(this._form);
+   this._setEventListeners();
 }
 
 }

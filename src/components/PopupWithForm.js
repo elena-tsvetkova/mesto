@@ -2,14 +2,14 @@ import {Popup} from './Popup.js';
 
 
 export class PopupWithForm extends Popup {
-    constructor ({ callbackSubmit }, popup) {
+    constructor ({ submitCallback }, popup) {
         super (popup);
-        this._callbackSubmit = callbackSubmit;
+        this._submitCallback = submitCallback;
 
         this._formElement = this._popup.querySelector('.popup__form');
         this._inputList = this._formElement.querySelectorAll('.form__input');
     }
-1   
+  
     _getInputValues () {
         this._formValues = {};
         this._inputList.forEach (input => {
@@ -20,7 +20,7 @@ export class PopupWithForm extends Popup {
 
     setEventListeners () {
         this._formElement.addEventListener('submit', () => {
-            this._callbackSubmit (this._getInputValues());
+            this._submitCallback (this._getInputValues());
         });
         super.setEventListeners();
     }

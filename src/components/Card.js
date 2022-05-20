@@ -10,8 +10,7 @@ export class Card {
   }
 
   _getTemplate() {
-    return document.querySelector('.element-template').content.querySelector('.element').cloneNode(true);
-// TODO: убрать хардкод селекторов в константы
+    return this._template.content.querySelector('.element').cloneNode(true);
   }
 
     generateCard() {
@@ -19,18 +18,27 @@ export class Card {
     this._like = this._element.querySelector('.element__like');
     this._removal = this._element.querySelector('.element__trash');
     this._imageNew = this._element.querySelector('.element__image');
-    this._element.querySelector('.element__image').src = this._link;
-    this._element.querySelector('.element__title').textContent = this._name;
-    this._element.querySelector('.element__image').alt = this._name;
+    this._titleImage = this._element.querySelector('.element__title')
+    this._imageNew.src = this._link;
+    this._titleImage.textContent = this._name;
+    this._imageNew.alt = this._name;
  
     this._setEventListeners();
     return this._element;
   }
 
   _setEventListeners() {
-    this._like.addEventListener('click', () => { this._like.classList.toggle('element__like-activ')})
-    this._removal.addEventListener('click', () => { this._removal.closest('.element').remove() })
+    this._like.addEventListener('click', () => { this._handleLikeCard()})
+    this._removal.addEventListener('click', () => {this._removeCard()})
     this._imageNew.addEventListener('click', () => { this._handleCardClick(this._name, this._link) })
+  }
+  
+  _handleLikeCard() {
+    this._like.classList.toggle('element__like-activ');
+  }
+
+  _removeCard() {
+    this._removal.closest('.element').remove()
   }
 
 }
