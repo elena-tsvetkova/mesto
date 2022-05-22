@@ -1,6 +1,6 @@
 export class Card {
   constructor ({data, handleCardClick}, template) {
-    this._template = template;
+    this._templateSelector = template;
     this._name = data.name;
     this._link = data.link;
     this._handleCardClick = handleCardClick;
@@ -10,7 +10,7 @@ export class Card {
   }
 
   _getTemplate() {
-    return this._template.content.querySelector('.element').cloneNode(true);
+    return document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
   }
 
     generateCard() {
@@ -38,7 +38,8 @@ export class Card {
   }
 
   _removeCard() {
-    this._removal.closest('.element').remove()
+    this._element.remove();
+    this._element = null;
   }
 
 }

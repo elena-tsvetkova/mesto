@@ -4,20 +4,19 @@ export const profileInfo = {
   profileStatus: '.profile__status'
 }
 export const popupProfileForm = document.querySelector('.popup__form-profile');
-export const popupProfile = document.querySelector('.popup-profile');
+export const popupProfileSelector = '.popup-profile';
 export const namePopup = document.querySelector('.popup__input_type_name');
 export const jobPopup = document.querySelector('.popup__input_type_job');
 
-export const newImage = document.querySelector('.popup-new-image');
-export const newImageFormGeneral = newImage.querySelector('.popup__form')
+export const newImageSelector = '.popup-new-image';
 export const nameImage = document.querySelector('.popup__input_type_title');
 export const linkImage = document.querySelector('.popup__input_type_link');
 export const addImage = document.querySelector('.profile__add-button');
 export const popupformAddCard = document.querySelector('.popup__form-new-image');
 
 export const cardContainer = document.querySelector('.elements');
-export const elementTemplate = document.querySelector('.element-template');
-export const popupBigImage = document.querySelector('.popup-big-image');
+export const elementTemplateSelector = '.element-template';
+export const popupBigImageSelector = '.popup-big-image';
 export const popupBigImageCloseButton = document.querySelector('.popup-big-image__close');
 
 export const popups = document.querySelectorAll('.popup');

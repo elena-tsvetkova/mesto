@@ -9,15 +9,15 @@ import './index.css';
   openProfileFormButton,
   profileInfo,
   popupProfileForm,
-  popupProfile,
-  newImage,
+  popupProfileSelector,
+  newImageSelector,
   addImage,
   popupformAddCard,
   cardContainer,
-  popupBigImage,
+  popupBigImageSelector,
   initialCards,
   settings,
-  elementTemplate,
+  elementTemplateSelector,
   namePopup,
   jobPopup,
   } from '../utils/constants.js';
@@ -29,7 +29,7 @@ editProfileValidate.enableValidation();
 const addProfileValidate = new FormValidator (settings, popupformAddCard);
 addProfileValidate.enableValidation();
 
-const functionBigImagePopup = new PopupWithImage (popupBigImage);
+const functionBigImagePopup = new PopupWithImage (popupBigImageSelector);
 functionBigImagePopup.setEventListeners();
 
 const createNewCard = function creatNewCard (data) {
@@ -37,7 +37,7 @@ const createNewCard = function creatNewCard (data) {
       handleCardClick: (name, link) => {
         functionBigImagePopup.open(name, link);
       }
-    },  elementTemplate);
+    },  elementTemplateSelector);
     const cardElement = card.generateCard();
     return cardElement;
   }
@@ -57,7 +57,7 @@ const popupWithFormEdit = new PopupWithForm (
   {submitCallback : (data) => {
       createUserInfo.setUserInfo(data);
       popupWithFormEdit.close();
-  }}, popupProfile);
+  }}, popupProfileSelector);
 popupWithFormEdit.setEventListeners();
 
 function editProfile() {
@@ -77,7 +77,7 @@ const popupWithFormAdd = new PopupWithForm (
       creatCard.addItem(cardFromPopup);
       popupWithFormAdd.close();
     }
-  }, newImage);
+  }, newImageSelector);
   popupWithFormAdd.setEventListeners();
 
   addImage.addEventListener('click', () => {
