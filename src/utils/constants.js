@@ -14,7 +14,7 @@ export const linkImage = document.querySelector('.popup__input_type_link');
 export const addImage = document.querySelector('.profile__add-button');
 export const popupformAddCard = document.querySelector('.popup__form-new-image');
 
-export const cardContainer = document.querySelector('.elements');
+export const cardContainerSelector = '.elements';
 export const elementTemplateSelector = '.element-template';
 export const popupBigImageSelector = '.popup-big-image';
 export const popupBigImageCloseButton = document.querySelector('.popup-big-image__close');

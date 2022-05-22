@@ -13,7 +13,7 @@ import './index.css';
   newImageSelector,
   addImage,
   popupformAddCard,
-  cardContainer,
+  cardContainerSelector,
   popupBigImageSelector,
   initialCards,
   settings,
@@ -48,7 +48,7 @@ const createNewCard = function creatNewCard (data) {
       const cardFromArray = createNewCard (item);
       creatCard.addItem(cardFromArray);
     }
-    }, cardContainer );
+    }, cardContainerSelector );
   creatCard.renderItems();
 
 const createUserInfo = new UserInfo(profileInfo);

@@ -1,7 +1,7 @@
 export class Section {
   constructor({ data, renderer}, containerSelector) {
     this._initialArray = data;
-    this._container = containerSelector;
+    this._containerSelector = containerSelector;
     this._renderer = renderer;
   }
 
@@ -10,6 +10,6 @@ export class Section {
 }
 
   addItem(cardElement) {
-    this._container.prepend(cardElement);
+    document.querySelector(this._containerSelector).prepend(cardElement);
   }
 } 
