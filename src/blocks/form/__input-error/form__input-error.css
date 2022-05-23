@@ -6,3 +6,9 @@ color: red;
   margin-left: 35px;
   height: 30px;
   }
+
+  @media screen and (max-width: 850px) {
+    .form__input-error{
+      margin-left: 20px;
+    }
+}
