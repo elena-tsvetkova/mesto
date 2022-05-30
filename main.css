@@ -33,7 +33,7 @@
 .profile__button-edit{background-color:#000;background-image:url(a1892ea72cb87c8fc3aa.svg);background-size:24px 24px;border:1px solid #fff;height:24px;margin-top:37px;outline:none;width:24px}.profile__button-edit:hover{cursor:pointer;opacity:.6}@media screen and (max-width:580px){.profile__button-edit{background-size:18px 18px;height:18px;margin-top:25px;width:18px}}
 .profile__name{font-size:42px;font-weight:500;line-height:52px;margin:0;max-width:350px;overflow:hidden;padding:20px 0 0 12px;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:880px){.profile__name{font-size:30px;line-height:33px}}@media screen and (max-width:425px){.profile__name{font-size:27px;max-width:200px;padding-left:38px;padding-top:18px;text-align:center}}
 .profile__status{font-size:18px;line-height:28px;margin:0;max-width:300px;overflow:hidden;padding-left:11px;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:580px){.profile__status{font-size:14px;grid-row-end:4;grid-row-start:3;line-height:12px;max-width:282px;padding-left:38px;text-align:center}}
-.profile__grid{display:grid;gap:10px 18px;grid-template-columns:120px 1fr 24px;grid-template-rows:1fr;min-height:73px}@media screen and (max-width:580px){.profile__grid{gap:11px 10px;grid-template-columns:1fr auto;grid-template-rows:repeat(3,minmax(-webkit-min-content,-webkit-max-content));grid-template-rows:repeat(3,minmax(min-content,max-content));justify-items:center;margin:0 0 32px}}
+.profile__grid{display:grid;gap:10px 18px;grid-template-columns:120px 1fr 24px;grid-template-rows:1fr;min-height:73px;position:relative}@media screen and (max-width:580px){.profile__grid{gap:11px 10px;grid-template-columns:1fr auto;grid-template-rows:repeat(3,minmax(-webkit-min-content,-webkit-max-content));grid-template-rows:repeat(3,minmax(min-content,max-content));justify-items:center;margin:0 0 32px}}
 .form__submit_inactive{border:1px solid #d0d0d0}.form__submit_inactive,.form__submit_inactive:hover{background-color:#fff;color:#d0d0d0}
 .form__input_type_error{border-bottom-color:red}
 .form__input-error{color:red;font-size:12px;height:30px;justify-self:start;line-height:15px;margin-left:35px;margin-right:20px}@media screen and (max-width:850px){.form__input-error{margin-left:20px}}
@@ -43,4 +43,7 @@
 .popup-delete__card{height:181px;width:430px}
 .popup-delete__title{padding:36px 34px 33px 38px}
 .popup-delete__button{height:50px;margin:0 36px 35px;width:358px}
+.popup-editAvatar__nev{height:272px;width:430px}
+.popup-editAvatar__title{padding-bottom:43px}
+.popup-editAvatar__button{margin-bottom:36px;margin-top:23px}
 
