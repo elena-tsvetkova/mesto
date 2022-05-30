@@ -1,7 +1,8 @@
 export const openProfileFormButton = document.querySelector('.profile__button-edit');
 export const profileInfo = {
   profileName: '.profile__name',
-  profileStatus: '.profile__status'
+  profileStatus: '.profile__status',
+  profileAvatar: '.profile__avatar'
 }
 export const popupProfileForm = document.querySelector('.popup__form-profile');
 export const popupProfileSelector = '.popup-profile';

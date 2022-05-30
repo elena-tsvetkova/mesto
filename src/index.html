@@ -15,10 +15,10 @@
       <main class="main">
         <section class="profile">          
           <div class="profile__grid">
-              <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="фото профиля">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <img class="profile__avatar" alt="фото профиля">
+              <h1 class="profile__name"></h1>
               <button type="button" class="profile__button-edit"></button>
-              <p class="profile__status">Исследователь океана</p>
+              <p class="profile__status"></p>
           </div>  
           <button type="button" class="profile__add-button"></button>
         </section>
@@ -104,7 +104,7 @@
             type="submit"
             disabled = "false"
             tabindex="3" 
-            class="popup__button form__submit">Сохранить</button>
+            class="popup__button form__submit">Создать</button>
           </form>
           <button type="button" class="popup__close popup__close-add"></button>
         </div>        
@@ -116,6 +116,40 @@
           <button 
           type="button" 
           class="popup__close popup-big-image__close"></button>
+        </div>        
+      </div>
+      <div class="popup popup-delete">
+        <div class="popup__container popup-delete__card">
+          <h2 class="popup__title popup-delete__title">Вы уверены?</h2>
+          <button 
+            type="submit"
+            disabled = "false"
+            tabindex="3" 
+            class="popup__button popup-delete__button form__submit">Да</button>
+          <button type="button" class="popup__close popup__close-delete"></button>
+        </div>        
+      </div>
+      <div class="popup popup-editAvatar">
+        <div class="popup__container popup-editAvatar__nev">
+          <h2 class="popup__title popup-editAvatar__title">Обновить аватар</h2>
+          <form class="popup__form form" novalidate name="popup-avatar">
+              <input 
+              id="link-avatar" 
+              type="url" 
+              tabindex="2" 
+              required 
+              class="popup__input popup__input_type_link form__input" 
+              placeholder="Ссылка на картинку" 
+              value="" 
+              name="link">
+            <span class="form__input-error link-input-error"></span>
+            <button 
+            type="submit"
+            disabled = "false"
+            tabindex="3" 
+            class="popup__button popup-editAvatar__button form__submit">Сохранить</button>
+          </form>
+          <button type="button" class="popup__close popup__close-add"></button>
         </div>        
       </div>
       <footer class="footer">

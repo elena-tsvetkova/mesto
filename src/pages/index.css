@@ -51,3 +51,12 @@
 @import url(../blocks/form/__input-error/form__input-error.css);
 @import url(../blocks/form/__input-error/_active/form__input-error_active.css);
 @import url(../blocks/name-input-error/name-input-error.css);
+
+@import url(../blocks/popup-delete/popup-delete.css);
+@import url(../blocks/popup-delete/__card/popup-delete__card.css);
+@import url(../blocks/popup-delete/__title/popup-delete__title.css);
+@import url(../blocks/popup-delete/__button/popup-delete__button.css);
+
+@import url(../blocks/popup-editAvatar/__nev/popup-editAvatar__nev.css);
+@import url(../blocks/popup-editAvatar/__title/popup-editAvatar__title.css);
+@import url(../blocks/popup-editAvatar/__button/popup-editAvatar__button.css);
