@@ -6,6 +6,7 @@
  import {PopupWithForm} from '../components/PopupWithForm.js';
  import {UserInfo} from '../components/UserInfo.js';
  import {Api} from '../components/Api.js';
+//  import {PopupWithConfirm} from '../components/PopupWithConfirm.js'
  import { 
   openProfileFormButton,
   profileInfo,
@@ -23,6 +24,7 @@
   jobPopup,
   } from '../utils/constants.js';
  
+// const popupConfirmSelector = '.popup-delete';
 
 const editProfileValidate = new FormValidator (settings, popupProfileForm);
 editProfileValidate.enableValidation();
@@ -32,6 +34,10 @@ addProfileValidate.enableValidation();
 
 const functionBigImagePopup = new PopupWithImage (popupBigImageSelector);
 functionBigImagePopup.setEventListeners();
+
+// const confirmDeletePopup = new PopupWithConfirm (popupConfirmSelector)
+// confirmDeletePopup.setEventListeners()
+
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-42',
@@ -92,10 +98,13 @@ openProfileFormButton.addEventListener('click', () => {editProfile()});
 
 
 const popupWithFormAdd = new PopupWithForm (
-    { submitCallback : (data) => {     
-      const cardFromPopup = createNewCard (data);
-      creatCard.addItem(cardFromPopup);
-      popupWithFormAdd.close();
+    { submitCallback : (data) => {   
+      api.addCard(data)
+      .then((data) => {
+        const cardFromPopup = createNewCard (data);
+        creatCard.addItem(cardFromPopup);
+        popupWithFormAdd.close();
+      })
     }
   }, newImageSelector);
   popupWithFormAdd.setEventListeners();

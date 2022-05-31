@@ -2,10 +2,10 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    object-fit: cover;
     margin: 0;
     grid-row-start: 1;
     grid-row-end: 4;
+    object-fit: cover;
 }
 
 @media screen and (max-width: 580px) {
