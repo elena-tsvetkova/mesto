@@ -52,7 +52,7 @@ const createNewCard = function creatNewCard (data) {
       handleCardClick: (name, link) => {
         functionBigImagePopup.open(name, link);
       }
-    },  elementTemplateSelector);
+    },  elementTemplateSelector, userId);
     const cardElement = card.generateCard();
     return cardElement;
   }
@@ -114,10 +114,13 @@ const popupWithFormAdd = new PopupWithForm (
     popupWithFormAdd.open();
   });
 
+
+  let userId
+
   api.getAllNeededData() // возвращает результат исполнения нужных промисов (карточки и информация пользователя)
   .then(( [cards, userData] ) => {
     createUserInfo.setUserInfo(userData)
-    // userId = userData._id
+    userId = userData._id
     creatCard.renderItems(cards)
   })
   .catch((err) => console.log(err))

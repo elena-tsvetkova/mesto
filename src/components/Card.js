@@ -1,9 +1,11 @@
 export class Card {
-  constructor ({data, handleCardClick}, template) {
+  constructor ({data, handleCardClick}, template, userId) {
     this._templateSelector = template;
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes
+    this._userId = userId
+    this._ownerId = data.owner._id
     this._handleCardClick = handleCardClick;
     this._titlePopupBigImage = document.querySelector('.popup-big-image__title');
     this._popupBigImage = document.querySelector('.popup-big-image');
@@ -15,6 +17,7 @@ export class Card {
   }
 
     generateCard() {
+      console.log(this._ownerId, this._userId)
     this._element = this._getTemplate();
     this._like = this._element.querySelector('.element__like');
     this._likeCount = this._element.querySelector('.element__like-count');
@@ -25,6 +28,10 @@ export class Card {
     this._titleImage.textContent = this._name;
     this._imageNew.alt = this._name;
     this._likeCount.textContent = this._likes.length; 
+
+    if(!(this._ownerId === this._userId)) {
+      this._removal.style.display = 'none'
+    }
  
     this._setEventListeners();
     return this._element;

@@ -16,6 +16,7 @@ export class UserInfo {
       this._nameValue.textContent = data.name;
       this._jobValue.textContent = data.about;
       this.setUserAvatar(data)
+      console.log(data)
   }
 
 
