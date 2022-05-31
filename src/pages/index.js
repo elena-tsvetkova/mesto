@@ -6,7 +6,7 @@
  import {PopupWithForm} from '../components/PopupWithForm.js';
  import {UserInfo} from '../components/UserInfo.js';
  import {Api} from '../components/Api.js';
-//  import {PopupWithConfirm} from '../components/PopupWithConfirm.js'
+ import {PopupWithConfirm} from '../components/PopupWithConfirm.js'
  import { 
   openProfileFormButton,
   profileInfo,
@@ -24,7 +24,7 @@
   jobPopup,
   } from '../utils/constants.js';
  
-// const popupConfirmSelector = '.popup-delete';
+const popupConfirmSelector = '.popup-delete';
 
 const editProfileValidate = new FormValidator (settings, popupProfileForm);
 editProfileValidate.enableValidation();
@@ -35,8 +35,8 @@ addProfileValidate.enableValidation();
 const functionBigImagePopup = new PopupWithImage (popupBigImageSelector);
 functionBigImagePopup.setEventListeners();
 
-// const confirmDeletePopup = new PopupWithConfirm (popupConfirmSelector)
-// confirmDeletePopup.setEventListeners()
+const confirmDeletePopup = new PopupWithConfirm (popupConfirmSelector)
+confirmDeletePopup.setEventListeners()
 
 
 const api = new Api({
@@ -51,6 +51,19 @@ const createNewCard = function creatNewCard (data) {
     const card = new Card ({data,
       handleCardClick: (name, link) => {
         functionBigImagePopup.open(name, link);
+      },
+      handleConfirmDelete: () => {
+        confirmDeletePopup.setSubmitAction( _ => {
+          confirmDeletePopup.renderLoadingWhileDeleting(true)
+            api.delete(data._id)
+              .then( _ => {
+                card.removeCard()
+                confirmDeletePopup.close()
+              })
+              .catch((err) => console.log(err))
+              .finally( _ => confirmDeletePopup.renderLoadingWhileDeleting(false))
+          })
+          confirmDeletePopup.open()
       }
     },  elementTemplateSelector, userId);
     const cardElement = card.generateCard();

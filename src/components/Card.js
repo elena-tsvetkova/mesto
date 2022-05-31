@@ -1,5 +1,5 @@
 export class Card {
-  constructor ({data, handleCardClick}, template, userId) {
+  constructor ({data, handleCardClick, handleConfirmDelete}, template, userId) {
     this._templateSelector = template;
     this._name = data.name;
     this._link = data.link;
@@ -7,6 +7,7 @@ export class Card {
     this._userId = userId
     this._ownerId = data.owner._id
     this._handleCardClick = handleCardClick;
+    this._handleConfirmDelete = handleConfirmDelete
     this._titlePopupBigImage = document.querySelector('.popup-big-image__title');
     this._popupBigImage = document.querySelector('.popup-big-image');
     this._picturePopupBigImage = document.querySelector('.popup-big-image__opened');
@@ -17,7 +18,6 @@ export class Card {
   }
 
     generateCard() {
-      console.log(this._ownerId, this._userId)
     this._element = this._getTemplate();
     this._like = this._element.querySelector('.element__like');
     this._likeCount = this._element.querySelector('.element__like-count');
@@ -39,7 +39,7 @@ export class Card {
 
   _setEventListeners() {
     this._like.addEventListener('click', () => { this._handleLikeCard()})
-    this._removal.addEventListener('click', () => {this._removeCard()})
+    this._removal.addEventListener('click', () => {this._handleConfirmDelete()})
     this._imageNew.addEventListener('click', () => { this._handleCardClick(this._name, this._link) })
   }
   
@@ -47,11 +47,9 @@ export class Card {
     this._like.classList.toggle('element__like-activ');
   }
 
-  _removeCard() {
-
+  removeCard() {
     this._element.remove();
     this._element = null;
-
   }
 
 }

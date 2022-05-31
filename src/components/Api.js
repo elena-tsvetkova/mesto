@@ -51,6 +51,15 @@ export class Api {
     .then(this._checkResponse)
   }
 
+  deleteCard(id) {
+    return fetch(this._url + `/cards/${id}`, {
+      method: 'DELETE',
+      headers: this._headers
+    })
+    .then(this._checkResponse)
+  }
+
+
   getAllNeededData() {
     return Promise.all([
       this.getInitialCards(),
