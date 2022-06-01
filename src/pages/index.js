@@ -52,6 +52,7 @@ const createNewCard = function creatNewCard (data) {
       handleCardClick: (name, link) => {
         functionBigImagePopup.open(name, link);
       },
+      handleLikeClick: _ => card.handleLikeCard(),
       handleConfirmDelete: () => {
         confirmDeletePopup.setSubmitAction( _ => {
           confirmDeletePopup.renderLoadingWhileDeleting(true)
@@ -65,7 +66,7 @@ const createNewCard = function creatNewCard (data) {
           })
           confirmDeletePopup.open()
       }
-    },  elementTemplateSelector, userId);
+    },  elementTemplateSelector, api, userId);
     const cardElement = card.generateCard();
     return cardElement;
   }
