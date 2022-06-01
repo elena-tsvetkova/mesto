@@ -47,6 +47,8 @@
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__status/profile__status.css);
 @import url(../blocks/profile/__grid/profile__grid.css);
+@import url(../blocks/profile/__avatarNew/profile__avatarNew.css);
+@import url(../blocks/profile/__avatar-button/profile__avatar-button.css);
 
 @import url(../blocks/form/__submit/_inactive/form__submit_inactive.css);
 @import url(../blocks/form/__input/_type_error/form__input_type_error.css);

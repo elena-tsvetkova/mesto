@@ -3,25 +3,5 @@
     height: 120px;
     border-radius: 50%;
     margin: 0;
-    grid-row-start: 1;
-    grid-row-end: 4;
     object-fit: cover;
 }
-
-@media screen and (max-width: 580px) {
-    .profile__avatar {
-        grid-row-start: 1;
-        grid-row-end: 2;
-        grid-column-start: 1;
-        grid-column-end: 4;
-    }
-}
-
-.profile__avatar:hover {
-    cursor:pointer;
-    opacity: 0.3;
-    /* background-color: rgba(0, 0, 0, 0.8); */
-    background: url("<%=require('../../../../../images/Vector1.svg") 50% no-repeat;
-    background-size: 26px;
-} 
-
