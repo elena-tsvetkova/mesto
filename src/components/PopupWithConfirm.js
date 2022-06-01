@@ -13,7 +13,6 @@ export class PopupWithConfirm extends Popup {
     setEventListeners() {
       super.setEventListeners()
       this._popupForm.addEventListener('submit', (evt) => {
-        console.log('sub')
         evt.preventDefault()
         this._handleSubmitCallback()
       })
@@ -24,7 +23,6 @@ export class PopupWithConfirm extends Popup {
     }
 
     renderLoadingWhileDeleting(isLoading) {
-      console.log('tew')
       if(isLoading) {
         this._popupButton.textContent = 'Сохранение...'
       } else {

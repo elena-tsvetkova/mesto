@@ -55,7 +55,7 @@ const createNewCard = function creatNewCard (data) {
       handleConfirmDelete: () => {
         confirmDeletePopup.setSubmitAction( _ => {
           confirmDeletePopup.renderLoadingWhileDeleting(true)
-            api.delete(data._id)
+            api.deleteCard(data._id)
               .then( _ => {
                 card.removeCard()
                 confirmDeletePopup.close()

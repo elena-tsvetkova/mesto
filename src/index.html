@@ -124,18 +124,15 @@
           class="popup__close popup-big-image__close"></button>
         </div>        
       </div>
+
       <div class="popup popup-delete">
         <div class="popup__container popup-delete__card">
-          <h2 class="popup__title popup-delete__title">Вы уверены?</h2>
-          <form class="popup__form form" novalidate name="popup-submit">
-            <button 
-              type="submit"
-              disabled = "false"
-              tabindex="1" 
-              class="popup__button popup-delete__button form__submit">Да</button>
-            </form>
+          <form class="popup__form form" name="popupForm" novalidate>
+            <h2 class="popup__title popup-delete__title">Вы уверены?</h2>
+            <button type="submit" class="popup__button popup-delete__button form__submit">Да</button>
+          </form>
           <button type="button" class="popup__close popup__close-delete"></button>
-        </div>        
+        </div>
       </div>
       <div class="popup popup-editAvatar">
         <div class="popup__container popup-editAvatar__nev">
@@ -144,7 +141,7 @@
               <input 
               id="link-avatar" 
               type="url" 
-              tabindex="2" 
+              tabindex="1" 
               required 
               class="popup__input popup__input_type_link form__input" 
               placeholder="Ссылка на картинку" 
@@ -154,7 +151,7 @@
               <button 
               type="submit"
               disabled = "false"
-              tabindex="3" 
+              tabindex="2" 
               class="popup__button popup-editAvatar__button form__submit">Сохранить</button>
           </form>
           <button type="button" class="popup__close popup__close-add"></button>
