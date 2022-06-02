@@ -75,6 +75,18 @@ export class Api {
     .then(this._checkResponse)
   }
 
+  updateAvatar(data) {
+    return fetch(this._url + `/users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: data.link,
+      })
+    })
+    .then(this._checkResponse)
+  }
+
+
   getAllNeededData() {
     return Promise.all([
       this.getInitialCards(),

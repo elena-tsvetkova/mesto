@@ -22,6 +22,10 @@
   elementTemplateSelector,
   namePopup,
   jobPopup,
+  avatarEditButton, // кнопка редактирования аватара
+  avatarEditForm, // форма редактирования аватара
+  popupAvatarEditSelector, // селектор попапа редактирования аватара профиля
+  profileAvatarSelector // изображение аватара ?? у нас есть в profileInfo
   } from '../utils/constants.js';
  
 const popupConfirmSelector = '.popup-delete';
@@ -55,15 +59,13 @@ const createNewCard = function creatNewCard (data) {
       handleLikeClick: _ => card.handleLikeCard(),
       handleConfirmDelete: () => {
         confirmDeletePopup.setSubmitAction( _ => {
-          confirmDeletePopup.renderLoadingWhileDeleting(true)
-            api.deleteCard(data._id)
+           api.deleteCard(data._id)
               .then( _ => {
                 card.removeCard()
                 confirmDeletePopup.close()
               })
               .catch((err) => console.log(err))
-              .finally( _ => confirmDeletePopup.renderLoadingWhileDeleting(false))
-          })
+           })
           confirmDeletePopup.open()
       }
     },  elementTemplateSelector, api, userId);
@@ -127,6 +129,29 @@ const popupWithFormAdd = new PopupWithForm (
     addProfileValidate.resetValidation();
     popupWithFormAdd.open();
   });
+
+  const popupAvatarEditFromValidator = new FormValidator(settings, avatarEditForm)
+  popupAvatarEditFromValidator.enableValidation()
+  
+  
+  const popupAvatarEdit = new PopupWithForm({submitCallback: newValues => {
+    popupAvatarEdit.renderLoading(true)
+    api.updateAvatar(newValues)
+      .then((data) => {
+        createUserInfo.setUserAvatar(data)
+        popupAvatarEditFromValidator.resetValidation()
+        popupAvatarEdit.close()
+      })
+      .catch((err) => console.log(err))
+      .finally( _ => popupAvatarEdit.renderLoading(false))
+  }}, popupAvatarEditSelector)
+  popupAvatarEdit.setEventListeners()
+  
+  avatarEditButton.addEventListener('click', _ => {
+    popupAvatarEditFromValidator.resetValidation()
+    popupAvatarEdit.open()
+  })
+
 
 
   let userId

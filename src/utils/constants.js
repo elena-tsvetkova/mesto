@@ -23,6 +23,11 @@ export const popupBigImageCloseButton = document.querySelector('.popup-big-image
 export const popups = document.querySelectorAll('.popup');
 export const elementsCardsContainer = document.querySelector('.element__image');
 
+export const avatarEditButton = document.querySelector('.profile__avatar-button');
+export const newPopupAvatarEdit = document.querySelector('.popup-editAvatar'); 
+export const avatarEditForm = newPopupAvatarEdit.querySelector('.popup__form');
+export const popupAvatarEditSelector = '.popup-editAvatar'; // селектор попапа редактирования аватара профиля
+export const profileAvatarSelector = '.profile__avatar'; // изображение аватара ?? у нас есть в profileInfo
 
 export const initialCards = [
     {
