@@ -57,7 +57,6 @@ const createNewCard = function creatNewCard (data) {
       handleCardClick: (name, link) => {
         functionBigImagePopup.open(name, link);
       },
-      handleLikeClick: _ => card.handleLikeCard(),
       handleConfirmDelete: () => {
         confirmDeletePopup.setSubmitAction( _ => {
            api.deleteCard(data._id)
@@ -68,8 +67,30 @@ const createNewCard = function creatNewCard (data) {
               .catch((err) => console.log(err))
            })
           confirmDeletePopup.open()
-      }
-    },  elementTemplateSelector, api, userId);
+      },
+      handleLikeClick: () => {
+        if (card.isLiked()) {
+            api.dislike(card._id)
+                .then((data) => {
+                    card.deleteLike();
+                    card.setLike(data.likes);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+
+        } else {
+            api.like(card._id)
+                .then((data) => {
+                    card.addLike();
+                    card.setLike(data.likes);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+    }
+    }, elementTemplateSelector, userId);
     const cardElement = card.generateCard();
     return cardElement;
   }
@@ -98,9 +119,10 @@ const popupWithFormEdit = new PopupWithForm (
       api.setUserInfoApi(data)
       .then((data) => {
         createUserInfo.setUserInfo(data)
-        popupWithFormEdit.renderLoading(false)
         popupWithFormEdit.close()
       })
+      .catch((err) => console.log(err))
+      .finally(() => {popupWithFormEdit.renderLoading(false)})
   }}, popupProfileSelector);
 popupWithFormEdit.setEventListeners();
 
@@ -122,9 +144,10 @@ const popupWithFormAdd = new PopupWithForm (
       .then((data) => {
         const cardFromPopup = createNewCard (data);
         creatCard.addItem(cardFromPopup);
-        popupWithFormAdd.renderLoading(false)
         popupWithFormAdd.close();
       })
+      .catch((err) => console.log(err))
+      .finally(() => { popupWithFormAdd.renderLoading(false)})
    }
   }, newImageSelector);
   popupWithFormAdd.setEventListeners();
@@ -156,7 +179,7 @@ const popupWithFormAdd = new PopupWithForm (
     popupAvatarEdit.open()
   })
 
-  api.getAllNeededData() // возвращает результат исполнения нужных промисов (карточки и информация пользователя)
+   api.getAllNeededData() // возвращает результат исполнения нужных промисов (карточки и информация пользователя)
   .then(( [cards, userData] ) => {
     createUserInfo.setUserInfo(userData)
     userId = userData._id

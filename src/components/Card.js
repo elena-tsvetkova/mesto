@@ -1,5 +1,5 @@
 export class Card {
-  constructor ({data, handleCardClick, handleLikeClick, handleConfirmDelete}, template, api, userId) {
+  constructor ({data, handleCardClick, handleLikeClick, handleConfirmDelete}, template, userId) {
     this._templateSelector = template;
     this._name = data.name;
     this._link = data.link;
@@ -7,7 +7,6 @@ export class Card {
     this._id = data._id
     this._userId = userId
     this._ownerId = data.owner._id
-    this._api = api;
     this._handleCardClick = handleCardClick;
     this._handleLikeClick =  handleLikeClick;
     this._handleConfirmDelete = handleConfirmDelete
@@ -31,7 +30,7 @@ export class Card {
     this._titleImage.textContent = this._name;
     this._imageNew.alt = this._name;
     this._likeCount.textContent = this._likes.length; 
-
+    
     if(!(this._ownerId === this._userId)) {
       this._removal.style.display = 'none'
     }
@@ -55,28 +54,20 @@ export class Card {
     this._element = null;
   }
 
-  handleLikeCard() {
-    const likeButton = this._element.querySelector('.element__like')
-    const likeCount = this._element.querySelector('.element__like-count')
-
-    if(!(likeButton.classList.contains('element__like-activ'))) {
-      this._api.like(this._id)
-        .then((data) => {
-          likeButton.classList.add('element__like-activ')
-          likeCount.textContent = data.likes.length
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    } else {
-      this._api.dislike(this._id)
-        .then((data) => {
-          likeButton.classList.remove('element__like-activ')
-          likeCount.textContent = data.likes.length
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
+  isLiked() {
+    return this._like.classList.contains('element__like-activ')
   }
+
+  setLike(likes) {
+    this._likes = likes;
+    this._likeCount.textContent = this._likes.length;
+}
+
+addLike = () => {
+  this._like.classList.add('element__like-activ')
+}
+
+deleteLike = () => {
+  this._like.classList.remove('element__like-activ')
+}
 }

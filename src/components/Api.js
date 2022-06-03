@@ -12,7 +12,7 @@ export class Api {
   }
 
   getUserInfo() {
-    return fetch(this._url + '/users/me', {
+    return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: this._headers
     })
@@ -20,7 +20,7 @@ export class Api {
   }
 
   setUserInfoApi(userData) { 
-    return fetch(this._url + '/users/me', {
+    return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
@@ -32,7 +32,7 @@ export class Api {
   }
 
   getInitialCards() {
-    return fetch(this._url + '/cards', {
+    return fetch(`${this._url}/cards`, {
       method: 'GET',
       headers: this._headers
     })
@@ -40,7 +40,7 @@ export class Api {
   }
 
   addCard(data) {
-    return fetch(this._url + '/cards', {
+    return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
@@ -52,7 +52,7 @@ export class Api {
   }
 
   deleteCard(id) {
-    return fetch(this._url + `/cards/${id}`, {
+    return fetch(`${this._url}/cards/${id}`, {
       method: 'DELETE',
       headers: this._headers
     })
@@ -60,7 +60,7 @@ export class Api {
   }
 
   like(id) {
-    return fetch(this._url + `/cards/likes/${id}`, {
+    return fetch(`${this._url}/cards/likes/${id}`, {
       method: 'PUT',
       headers: this._headers
     })
@@ -68,7 +68,7 @@ export class Api {
   }
 
   dislike(id) {
-    return fetch(this._url + `/cards/likes/${id}`, {
+    return fetch(`${this._url}/cards/likes/${id}`, {
       method: 'DELETE',
       headers: this._headers
     })
@@ -76,7 +76,7 @@ export class Api {
   }
 
   updateAvatar(data) {
-    return fetch(this._url + `/users/me/avatar`, {
+    return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
