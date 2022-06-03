@@ -21,12 +21,4 @@ export class PopupWithConfirm extends Popup {
     setSubmitAction(action) {
       this._handleSubmitCallback = action
     }
-
-    renderLoadingWhileDeleting(isLoading) {
-      if(isLoading) {
-        this._popupButton.textContent = 'Сохранение...'
-      } else {
-        this._popupButton.textContent = this._popupButtonTextContent
-      }
-    }
 } 

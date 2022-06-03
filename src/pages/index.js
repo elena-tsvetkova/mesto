@@ -25,9 +25,10 @@
   avatarEditButton, // кнопка редактирования аватара
   avatarEditForm, // форма редактирования аватара
   popupAvatarEditSelector, // селектор попапа редактирования аватара профиля
-  profileAvatarSelector // изображение аватара ?? у нас есть в profileInfo
   } from '../utils/constants.js';
  
+let userId
+
 const popupConfirmSelector = '.popup-delete';
 
 const editProfileValidate = new FormValidator (settings, popupProfileForm);
@@ -80,7 +81,6 @@ const createNewCard = function creatNewCard (data) {
       creatCard.addItem(cardFromArray);
     }
     }, cardContainerSelector );
-  // creatCard.renderItems(initialCards);
 
 const data = api.getUserInfo({
   'baseUrl': 'https://mesto.nomoreparties.co/v1/cohort-42',
@@ -94,9 +94,11 @@ const createUserInfo = new UserInfo(profileInfo);
 
 const popupWithFormEdit = new PopupWithForm (
   {submitCallback : (data) => {
+    popupWithFormEdit.renderLoading(true)
       api.setUserInfoApi(data)
       .then((data) => {
         createUserInfo.setUserInfo(data)
+        popupWithFormEdit.renderLoading(false)
         popupWithFormEdit.close()
       })
   }}, popupProfileSelector);
@@ -114,14 +116,16 @@ openProfileFormButton.addEventListener('click', () => {editProfile()});
 
 
 const popupWithFormAdd = new PopupWithForm (
-    { submitCallback : (data) => {   
-      api.addCard(data)
+    { submitCallback: (data) => {
+      popupWithFormAdd.renderLoading(true)
+       api.addCard(data)
       .then((data) => {
         const cardFromPopup = createNewCard (data);
         creatCard.addItem(cardFromPopup);
+        popupWithFormAdd.renderLoading(false)
         popupWithFormAdd.close();
       })
-    }
+   }
   }, newImageSelector);
   popupWithFormAdd.setEventListeners();
 
@@ -151,10 +155,6 @@ const popupWithFormAdd = new PopupWithForm (
     popupAvatarEditFromValidator.resetValidation()
     popupAvatarEdit.open()
   })
-
-
-
-  let userId
 
   api.getAllNeededData() // возвращает результат исполнения нужных промисов (карточки и информация пользователя)
   .then(( [cards, userData] ) => {

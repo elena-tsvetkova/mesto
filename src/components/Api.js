@@ -19,7 +19,7 @@ export class Api {
     .then(this._checkResponse)
   }
 
-  setUserInfoApi(userData) { // отправка данных пользователя на сервер
+  setUserInfoApi(userData) { 
     return fetch(this._url + '/users/me', {
       method: 'PATCH',
       headers: this._headers,
